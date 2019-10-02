@@ -1,4 +1,7 @@
 <template>
+
+  
+
   <div id="home-view">
     <div id="sidebar">
       <ul>
@@ -49,13 +52,13 @@
     </section>
 
     <section id="schedule">
-      <div class="container-fluid" style="padding-right: 29px; padding-left: 29px;">
+      <!--<div class="container-fluid">-->
         <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
             <slide v-for="(segmento, index) in segmentos" :key="index">
               <div class="col-md-12" style="padding:0">
                 <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
                   <div class="green-box">
-                    <h3 class="text-white">{{ segmento.nombre }}</h3>
+                    <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
                   </div>
                   <div class="blue-box">
                     <p
@@ -68,7 +71,7 @@
             </slide>
             
         </carousel>
-      </div>
+      <!--</div>-->
     </section>
 
     <section id="transmissions">
@@ -84,7 +87,7 @@
               <div class="col-md-12">
               <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
                 <div class="green-box">
-                  <h3 class="text-white">{{transmision.evento}}</h3>
+                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                 </div>
                 <div class="blue-box">
                   <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
@@ -101,23 +104,19 @@
     <section id="follow-us">
       <div class="cover">
         <div class="container">
-          <div class="row align-items-center full-height">
-            <div class="col-12">
+          <div class="row">
+            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-            <div class="col-12" style="margin-top: -8rem;">
-              <div class="row">
-                <div class="col-md-4">
-                  <h3 class="text-center text-green">Facebook</h3>
+                <div class="col-md-2 offset-md-3">
+                  <h1 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h1>
                 </div>
-                <div class="col-md-4">
-                  <h3 class="text-center text-green">Instagram</h3>
+                <div class="col-md-2">
+                  <h1 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h1>
                 </div>
-                <div class="col-md-4">
-                  <h3 class="text-center text-green">Twitter</h3>
+                <div class="col-md-2">
+                  <h1 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h1>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -567,5 +566,30 @@ export default {
 <style lang="css" scope>
 .VueCarousel-slide {
   visibility: visible;
+}
+
+.VueCarousel-navigation-prev {
+    background-image: url('~@/assets/img/flecha_diblu.png');
+    background-size: cover;
+    transform: rotate(180deg) !important;
+    font-size: 0;
+    height: 236px;
+    width: 114px;
+    margin-top: -120px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.VueCarousel-navigation-next {
+    background-image: url('~@/assets/img/flecha_diblu.png');
+    background-size: cover;
+    font-size: 0;
+    height: 236px;
+    width: 114px;
+    margin-right: 114px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 </style>
