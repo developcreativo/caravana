@@ -97,8 +97,25 @@
 }
 
 #transmissions{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#transmissions h1{
+    margin-bottom: 2rem;
+}
+
+#transmissions h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
 }
 
 #transmissions .carousel{
@@ -113,9 +130,35 @@
     width: 100%;
 }
 
+#follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+    
+}
+
+#social h1:after {
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+}
+
 #social{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 #social p{
@@ -147,6 +190,23 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+}
+
+#caravana .follow-us h1{
+    position: relative;
+}
+
+#caravana .follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
 }
 
 #caravana .cover{
@@ -214,12 +274,34 @@
 }
 
 #caravana .transmissions{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#caravana .transmissions h1{
+    margin-bottom: 2rem;
+}
+
+#caravana .transmissions h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+
 }
 
 #caravana .transmissions .carousel{
     margin-top: 2rem;
+}
+
+#caravana .follow-us i{
+    color: #e10713;
 }
 
 #caravana .follow-us{
@@ -231,8 +313,22 @@
 }
 
 #caravana .social{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#caravana .social h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+
 }
 
 #caravana .social p{
@@ -279,9 +375,51 @@
     background-position: center;
 }
 
+#ohconde .social h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+
+}
+
+#ohconde .follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+    
+}
+
+#ohconde .transmissions h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+}
+
+
 #ohconde .transmissions{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 #ohconde .schedule .green-box, #ohconde .transmissions .green-box{
@@ -324,6 +462,10 @@
 #ohconde .social{
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+#ohconde .follow-us i{
+    color: #f7b21a;
 }
 
 #ohconde .social p{

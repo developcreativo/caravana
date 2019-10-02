@@ -79,6 +79,7 @@
         <div class="row">
           <div class="col-12">
             <h1 class="text-center">Transmisiones</h1>
+            <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum </p>
           </div>
         </div>
 
@@ -109,13 +110,13 @@
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
                 <div class="col-md-2 offset-md-3">
-                  <h1 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h1>
+                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h1 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h1>
+                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h1 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h1>
+                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
         </div>
@@ -190,6 +191,7 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
+              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
             </div>
           </div>
 
@@ -231,24 +233,20 @@
       <section class="follow-us">
         <div class="cover">
           <div class="container">
-            <div class="row align-items-center full-height">
-              <div class="col-12">
-                <h1 class="text-center text-white">SÍGUENOS</h1>
-              </div>
-              <div class="col-12" style="margin-top: -8rem;">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h3 class="text-center text-green">Facebook</h3>
-                  </div>
-                  <div class="col-md-4">
-                    <h3 class="text-center text-green">Instagram</h3>
-                  </div>
-                  <div class="col-md-4">
-                    <h3 class="text-center text-green">Twitter</h3>
-                  </div>
-                </div>
-              </div>
+            <div class="row">
+            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+              <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
+                <div class="col-md-2 offset-md-3">
+                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
+                </div>
+          </div>
           </div>
         </div>
       </section>
@@ -298,7 +296,8 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="row align-items-center item-schedule" v-for="(segmento, index) in segmentos" :key="index">
+              <div class="your-class">
+                <div class="row align-items-center item-schedule" v-for="(segmento, index) in segmentos" :key="index">
                 <div class="col-4">
                   <img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />
                 </div>
@@ -308,6 +307,7 @@
                   >{{ segmento.nombre }}</h5>
                 </div>
               </div>
+              </div>
             </div>
           </div>
         </div>
@@ -316,24 +316,20 @@
       <section class="follow-us">
         <div class="cover">
           <div class="container">
-            <div class="row align-items-center full-height">
-              <div class="col-12">
-                <h1 class="text-center text-white">SÍGUENOS</h1>
-              </div>
-              <div class="col-12" style="margin-top: -8rem;">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h3 class="text-center text-orange">Facebook</h3>
-                  </div>
-                  <div class="col-md-4">
-                    <h3 class="text-center text-orange">Instagram</h3>
-                  </div>
-                  <div class="col-md-4">
-                    <h3 class="text-center text-orange">Twitter</h3>
-                  </div>
-                </div>
-              </div>
+            <div class="row">
+            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+              <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
+                <div class="col-md-2 offset-md-3">
+                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
+                </div>
+          </div>
           </div>
         </div>
       </section>
@@ -343,6 +339,7 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
+              <p>Lorem ipsum Lorem ipsum Lorem ipsum</p>
             </div>
           </div>
 
@@ -408,6 +405,7 @@
   </div>
 </template>
 <script>
+
 import { mapActions, mapState } from "vuex";
 import api from "../api/session";
 import { Carousel, Slide } from 'vue-carousel';
@@ -483,6 +481,12 @@ export default {
         this.langing_oh_conde = true
         this.landing_caravana = false
         this.landing_diblu = false
+
+        $(document).ready(function(){
+          $('.your-class').slick({vertical: true, slidesToShow: 3,
+  slidesToScroll: 1});
+        });
+
       }
       api
         .get(url)
@@ -562,6 +566,7 @@ export default {
     }
   },
 };
+
 </script>
 <style lang="css" scope>
 .VueCarousel-slide {
