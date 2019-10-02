@@ -1,0 +1,135 @@
+.background-image{
+    background-image: url('../img/539610.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar{
+    padding: 2.5rem;
+    font-size: 12px;
+}
+
+.navbar .nav-link{
+    margin-left: .8rem;
+    margin-right: .8rem;
+}
+
+.cover{
+    background-color: rgba(11, 9, 26, 0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-btn{
+    border: 1.5px solid;
+    border-color: #5f4d98;
+    color: #5f4d98 !important;
+    margin-left: 2rem;
+}
+
+.full-height{
+    height: 100vh;
+}
+
+.first-text{
+    font-size: 4rem;
+    margin-left: 7rem;
+    margin-bottom: -28px;
+}
+
+.second-text{
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-images{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 120px;
+}
+
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.footer-link{
+    width: 40px;
+}
+
+.footer-link img{
+    width: 40px;
+}
+
+.footer-link-text{
+    margin-top: -15px;
+    font-size: 10px;
+    color: #5f4d98;
+}
+
+.footer-link > a{
+    text-decoration: none;
+}
+
+.collapse-btn{
+    display: none;
+}
+
+
+.collapse-btn > i{
+    color: #5f4d98;
+    font-size: 30px;
+}
+
+
+@media (max-width: 1025px) {
+    #collapse-navbar {
+        display: none !important;
+    }
+
+    .collapse-btn{
+        display: block;
+    }
+
+    .navbar-brand{
+        width: 60px;
+    }
+
+    .footer{
+        display: none;
+    }
+
+}
+
+@media (max-width: 780px) {
+
+    .btn-images{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+}
+
+@media (max-width: 465px) {
+
+    .btn-images{
+        margin-left: .4rem;
+        margin-right: .4rem;
+    }
+
+}
+
+
+
