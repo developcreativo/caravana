@@ -1,23 +1,11 @@
 <template>
   <div id="app">
-    <navbar v-if="isAuthenticated"></navbar>
     <router-view></router-view>
   </div>
 </template>
-
 <script>
-import { mapGetters } from 'vuex';
-
-import Navbar from './components/Navbar';
-
 export default {
   name: 'app',
-  components: {
-    Navbar,
-  },
-  computed: mapGetters('auth', [
-    'isAuthenticated',
-  ]),
 };
 </script>
 

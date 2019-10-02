@@ -3,7 +3,9 @@
    
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">
+        <img :src="logo" alt="" class="full-image logo">
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -48,8 +50,15 @@
 <script>
 import { mapState } from "vuex";
 import Emisoras from "./EmisorasNavBar.vue";
+const img = require('@/assets/img/logo_grupocaravana.png')
 export default {
   name: "navbar",
+  props: {
+    logo: {
+      type: String,
+      default: img
+    },
+  },
   components: {
     Emisoras
   },
@@ -63,4 +72,7 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  width: 100px;
+}
 </style>
