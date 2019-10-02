@@ -1,8 +1,6 @@
 <template>
-
-  
-
   <div id="home-view">
+    <navbar v-if="isAuthenticated" :logo="logo_emisora"></navbar>
     <div id="sidebar">
       <ul>
         <li>
@@ -31,135 +29,80 @@
         </li>
       </ul>
     </div>
+    <section id="home">
+      <div class="cover">
+        <div class="container">
+          
+          <div class="row align-items-center full-height">
+
+           
+            <div class="mx-auto">
+             
+            <div class="text-center main-text mb-4">
+              <img  class="logo-karavana" src="@/assets/img/letras_grupocaravana.png" alt="">
+            </div>
+              <a href="#hero" @click="getEmisoraSegmentosToday(13, 'diblu')"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
+              <a href="#caravana" @click="getEmisoraSegmentosToday(16, 'caravana')">
+                <img class="btn-images" src="@/assets/img/boton_RC.png" alt />
+              </a>
+              <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
+                <img class="btn-images" src="@/assets/img/boton_ohconde.png" alt />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="offset-md-9 col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img src="@/assets/img/codigo_etica.png" alt="">
+                                    </p>
+                                    <p class="text-center footer-link-text" href="">Código de ética</p>
+                                </a>
+                            </div>
+                            <div class="col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img class="text-center" src="@/assets/img/comparticion_de_infraestructura.png" alt="">
+                                    </p>
+                                    <p class="text-center footer-link-text" href="">Compartición de la infraestructura</p>
+                                </a>
+                            </div>
+                            <div class="col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img class="text-center" src="@/assets/img/rendicion_de_cuentas.png" alt="">
+                                    </p>
+                                    <p href="" class="text-center footer-link-text">Rendición de cuentas</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      </div>
+    </section>
+
     <template v-if="landing_diblu">
       <section id="hero">
-      <div class="cover">
-        <div class="container">
-          <div class="row align-items-center full-height">
-            <div class="col-12">
-              <h1 class="text-center main-text">
-                ESCÚCHANOS
-                <span class="green-text">EN VIVO</span> AHORA
-              </h1>
-              <p class="text-center">
-                <img @click.prevent="playSoundDiBlu()" style="width: 120px;" src="@/assets/img/play_diblu.png" alt />
-                <!--<audio src="http://www.makrodigital.com:8137/radiodiblu" crossorigin="anonymous" id="audio" controls></audio>-->
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="schedule">
-      <!--<div class="container-fluid">-->
-        <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(segmento, index) in segmentos" :key="index">
-              <div class="col-md-12" style="padding:0">
-                <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
-                  <div class="green-box">
-                    <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
-                  </div>
-                  <div class="blue-box">
-                    <p
-                        class="text-center text-white"
-                      >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
-                  </div>
-                </div>
-              </div>
-               
-            </slide>
-            
-        </carousel>
-      <!--</div>-->
-    </section>
-
-    <section id="transmissions">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="text-center">Transmisiones</h1>
-            <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum </p>
-          </div>
-        </div>
-
-        <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(transmision, index) in transmisiones" :key="index">
-              <div class="col-md-12">
-              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
-                <div class="green-box">
-                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
-                </div>
-              </div>
-            </div>
-               
-            </slide>
-            
-        </carousel>
-      </div>
-    </section>
-
-    <section id="follow-us">
-      <div class="cover">
-        <div class="container">
-          <div class="row">
-            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
-              <h1 class="text-center text-white">SÍGUENOS</h1>
-            </div>
-                <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="social">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="text-center">Redes Sociales</h1>
-          </div>
-          <div class="col-12">
-            <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
-          </div>
-
-          <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
-          </div>
-          <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
-          </div>
-          <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
-          </div>
-        </div>
-      </div>
-    </section>
-    </template>
-
-    <template v-if="landing_caravana">
-      <div id="caravana">
-      <section class="hero">
         <div class="cover">
           <div class="container">
             <div class="row align-items-center full-height">
               <div class="col-12">
                 <h1 class="text-center main-text">
                   ESCÚCHANOS
-                  <span class="red-text">EN VIVO</span> AHORA
+                  <span class="green-text">EN VIVO</span> AHORA
                 </h1>
                 <p class="text-center">
-                  <img @click.prevent="playSoundCaravana()" style="width: 120px;" src="@/assets/img/play_RC.png" alt />
+                  <img
+                    @click.prevent="playSoundDiBlu()"
+                    style="width: 120px;"
+                    src="@/assets/img/play_diblu.png"
+                    alt
+                  />
+                  <!--<audio src="http://www.makrodigital.com:8137/radiodiblu" crossorigin="anonymous" id="audio" controls></audio>-->
                 </p>
               </div>
             </div>
@@ -167,13 +110,21 @@
         </div>
       </section>
 
-      <section class="schedule">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-3" v-for="(segmento, index) in segmentos" :key="index">
+      <section id="schedule">
+        <!--<div class="container-fluid">-->
+        <carousel
+          :autoplay="true"
+          :perPage="5"
+          :paginationEnabled="false"
+          :navigationEnabled="true"
+          navigationNextLabel="▶"
+          navigationPrevLabel="◀"
+        >
+          <slide v-for="(segmento, index) in segmentos" :key="index">
+            <div class="col-md-12" style="padding:0">
               <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
                 <div class="green-box">
-                  <h3 class="text-white">{{ segmento.nombre }}</h3>
+                  <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
                 </div>
                 <div class="blue-box">
                   <p
@@ -182,11 +133,12 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </slide>
+        </carousel>
+        <!--</div>-->
       </section>
 
-      <section class="transmissions">
+      <section id="transmissions">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -195,63 +147,64 @@
             </div>
           </div>
 
-          <div class="row carousel">
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+          <carousel
+            :autoplay="true"
+            :perPage="3"
+            :paginationEnabled="false"
+            :navigationEnabled="true"
+            navigationNextLabel="▶"
+            navigationPrevLabel="◀"
+          >
+            <slide v-for="(transmision, index) in transmisiones" :key="index">
+              <div class="col-md-12">
+                <div
+                  v-if="transmision.equipo1"
+                  :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }"
+                  class="bg-image"
+                >
+                  <div class="green-box">
+                    <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+                  </div>
+                  <div class="blue-box">
+                    <p
+                      class="text-center text-white"
+                    >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </slide>
+          </carousel>
         </div>
       </section>
 
-      <section class="follow-us">
+      <section id="follow-us">
         <div class="cover">
           <div class="container">
             <div class="row">
-            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
-              <h1 class="text-center text-white">SÍGUENOS</h1>
+              <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+                <h1 class="text-center text-white">SÍGUENOS</h1>
+              </div>
+              <div class="col-md-2 offset-md-3">
+                <h2 class="text-center text-green">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </h2>
+              </div>
+              <div class="col-md-2">
+                <h2 class="text-center text-green">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </h2>
+              </div>
+              <div class="col-md-2">
+                <h2 class="text-center text-green">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </h2>
+              </div>
             </div>
-                <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
-          </div>
           </div>
         </div>
       </section>
 
-      <section class="social">
+      <section id="social">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -273,165 +226,324 @@
           </div>
         </div>
       </section>
-    </div>
+    </template>
+
+    <template v-if="landing_caravana">
+      <div id="caravana">
+        <section class="hero">
+          <div class="cover">
+            <div class="container">
+              <div class="row align-items-center full-height">
+                <div class="col-12">
+                  <h1 class="text-center main-text">
+                    ESCÚCHANOS
+                    <span class="red-text">EN VIVO</span> AHORA
+                  </h1>
+                  <p class="text-center">
+                    <img
+                      @click.prevent="playSoundCaravana()"
+                      style="width: 120px;"
+                      src="@/assets/img/play_RC.png"
+                      alt
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="schedule">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3" v-for="(segmento, index) in segmentos" :key="index">
+                <div
+                  :style="{ 'background-image': 'url(' + segmento.imagen + ')' }"
+                  class="bg-image"
+                >
+                  <div class="green-box">
+                    <h3 class="text-white">{{ segmento.nombre }}</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p
+                      class="text-center text-white"
+                    >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="transmissions">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="text-center">Transmisiones</h1>
+                <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              </div>
+            </div>
+
+            <div class="row carousel">
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="follow-us">
+          <div class="cover">
+            <div class="container">
+              <div class="row">
+                <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+                  <h1 class="text-center text-white">SÍGUENOS</h1>
+                </div>
+                <div class="col-md-2 offset-md-3">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="social">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="text-center">Redes Sociales</h1>
+              </div>
+              <div class="col-12">
+                <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
+              </div>
+
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </template>
 
     <template v-if="langing_oh_conde">
       <div id="ohconde">
-      <section class="hero">
-        <div class="cover"></div>
-      </section>
+        <section class="hero">
+          <div class="cover"></div>
+        </section>
 
-      <section class="schedule">
-        <div class="container">
-          <div class="row align-items-center full-height">
-            <div class="col-12">
-              <img
-                src="@/assets/img/2-1400x445.png"
-                class="full-image"
-                alt
-                style="margin-top: -20%; z-index: 99;"
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="your-class">
-                <div class="row align-items-center item-schedule" v-for="(segmento, index) in segmentos" :key="index">
-                <div class="col-4">
-                  <img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />
-                </div>
-                <div class="col-8">
-                  <h5
-                    class="text-center text-white"
-                  >{{ segmento.nombre }}</h5>
-                </div>
-              </div>
+        <section class="schedule">
+          <div class="container">
+            <div class="row align-items-center full-height">
+              <div class="col-12">
+                <img
+                  src="@/assets/img/2-1400x445.png"
+                  class="full-image"
+                  alt
+                  style="margin-top: -20%; z-index: 99;"
+                />
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="your-class">
+                  <div
+                    class="row align-items-center item-schedule"
+                    v-for="(segmento, index) in segmentos"
+                    :key="index"
+                  >
+                    <div class="col-4">
+                      <img
+                        :style="{ 'background-image': 'url(' + segmento.imagen + ')' }"
+                        class="full-image"
+                        alt
+                      />
+                    </div>
+                    <div class="col-8">
+                      <h5 class="text-center text-white">{{ segmento.nombre }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="follow-us">
-        <div class="cover">
+        <section class="follow-us">
+          <div class="cover">
+            <div class="container">
+              <div class="row">
+                <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+                  <h1 class="text-center text-white">SÍGUENOS</h1>
+                </div>
+                <div class="col-md-2 offset-md-3">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="transmissions">
           <div class="container">
             <div class="row">
-            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
-              <h1 class="text-center text-white">SÍGUENOS</h1>
-            </div>
-                <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="transmissions">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="text-center">Transmisiones</h1>
-              <p>Lorem ipsum Lorem ipsum Lorem ipsum</p>
-            </div>
-          </div>
-
-          <div class="row carousel">
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
+              <div class="col-12">
+                <h1 class="text-center">Transmisiones</h1>
+                <p>Lorem ipsum Lorem ipsum Lorem ipsum</p>
               </div>
             </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+
+            <div class="row carousel">
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
                 </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+              </div>
+              <div class="col-md-4">
+                <div style="background-image: url('img/1.png');" class="bg-image">
+                  <div class="green-box">
+                    <h3 class="text-white">Copa América</h3>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="social">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="text-center">Redes Sociales</h1>
-            </div>
-            <div class="col-12">
-              <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
-            </div>
+        <section class="social">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="text-center">Redes Sociales</h1>
+              </div>
+              <div class="col-12">
+                <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
+              </div>
 
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
-            </div>
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
-            </div>
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
+              <div class="col-md-4">
+                <img src="@/assets/img/image_3.png" class="full-image" alt />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </template>
   </div>
 </template>
 <script>
-
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 import api from "../api/session";
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from "vue-carousel";
+import Navbar from '@/components/Navbar';
+const diblu = require('@/assets/img/boton_diblu.png')
+const RC = require('@/assets/img/boton_RC.png')
+const ohconde = require('@/assets/img/boton_ohconde.png')
 export default {
   name: "home",
   components: {
-    'carousel': Carousel,
-    'slide': Slide
+    carousel: Carousel,
+    slide: Slide,
+    Navbar
   },
   data() {
     return {
       slickOptions: {
-                slidesToShow: 6,
-                // Any other options that can be got from plugin documentation
-            },
+        slidesToShow: 6
+        // Any other options that can be got from plugin documentation
+      },
+      logo_emisora: '',
       audio_radiodiblu: {
-          id: 'radiodiblu',
-          name: 'RadioDiblu',
-          file: new Audio('http://www.makrodigital.com:8137/radiodiblu'),
-          isPlaying: false
+        id: "radiodiblu",
+        name: "RadioDiblu",
+        file: new Audio("http://www.makrodigital.com:8137/radiodiblu"),
+        isPlaying: false
       },
       audio_radiocaravana: {
-        id: 'radiocaravana',
-          name: 'Radio Caravana',
-          file: new Audio('http://www.makrodigital.com:8006/radiocaravana'),
-          isPlaying: false
+        id: "radiocaravana",
+        name: "Radio Caravana",
+        file: new Audio("http://www.makrodigital.com:8006/radiocaravana"),
+        isPlaying: false
       },
       segmentos: [],
       equipos: [],
@@ -440,95 +552,102 @@ export default {
       landing_diblu: true,
       langing_oh_conde: false,
       emisora_id: null,
-      type: 'diblu',
+      type: "diblu"
     };
   },
+  computed: mapGetters('auth', [
+    'isAuthenticated',
+  ]),
   mounted() {
     this.getEmisoraSegmentosToday(13, this.type);
-    this.getAllEquipos()
+    this.getAllEquipos();
   },
   methods: {
     next() {
-            this.$refs.slick.next();
-        },
+      this.$refs.slick.next();
+    },
 
-        prev() {
-            this.$refs.slick.prev();
-        },
+    prev() {
+      this.$refs.slick.prev();
+    },
 
-        reInit() {
-            // Helpful if you have to deal with v-for to update dynamic lists
-            this.$nextTick(() => {
-                this.$refs.slick.reSlick();
-            });
-        },
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$nextTick(() => {
+        this.$refs.slick.reSlick();
+      });
+    },
     getEmisoraSegmentosToday(id, type) {
       const url = `/emisoras/${id}/segmentos/today?format=json`;
       this.emisora_id = id;
       this.type = type;
-      if(type == 'diblu') {
-        this.landing_diblu = true
-        this.landing_caravana = false
-        this.langing_oh_conde = false
+      if (type == "diblu") {
+        this.logo_emisora = diblu
+        this.landing_diblu = true;
+        this.landing_caravana = false;
+        this.langing_oh_conde = false;
       }
 
-       if(type == 'caravana') {
-        this.landing_caravana = true
-        this.landing_diblu = false
-        this.langing_oh_conde = false
+      if (type == "caravana") {
+        this.logo_emisora = RC
+        this.landing_caravana = true;
+        this.landing_diblu = false;
+        this.langing_oh_conde = false;
       }
-      if(type == 'oh_conde') {
-        this.langing_oh_conde = true
-        this.landing_caravana = false
-        this.landing_diblu = false
+      if (type == "oh_conde") {
+        this.logo_emisora = ohconde
+        this.langing_oh_conde = true;
+        this.landing_caravana = false;
+        this.landing_diblu = false;
 
-        $(document).ready(function(){
-          $('.your-class').slick({vertical: true, slidesToShow: 3,
-  slidesToScroll: 1});
+        $(document).ready(function() {
+          $(".your-class").slick({
+            vertical: true,
+            slidesToShow: 3,
+            slidesToScroll: 1
+          });
         });
-
       }
       api
         .get(url)
         .then(res => {
           this.segmentos = res.data;
-            const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
-          api.get(url_transmisiones)
+          const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
+          api
+            .get(url_transmisiones)
             .then(res => {
               this.transmisiones = res.data;
             })
             .catch(err => {
               console.error(err);
             });
-
-
         })
         .catch(err => {
           console.error(err);
         });
     },
 
-    playSoundDiBlu () {
+    playSoundDiBlu() {
       this.audio_radiodiblu.isPlaying = true;
       this.audio_radiodiblu.file.play();
 
-      if(this.type == 'diblu') {
+      if (this.type == "diblu") {
         this.audio_radiocaravana.isPlaying = true;
         this.audio_radiocaravana.file.pause();
       }
     },
 
-    playSoundCaravana () {
+    playSoundCaravana() {
       this.audio_radiocaravana.isPlaying = true;
       this.audio_radiocaravana.file.play();
 
-      if(this.type == 'caravana') {
+      if (this.type == "caravana") {
         this.audio_radiodiblu.isPlaying = true;
         this.audio_radiodiblu.file.pause();
       }
     },
 
-    getAllEquipos () {
+    getAllEquipos() {
       const url = `/equipos?format=json`;
       api
         .get(url)
@@ -540,33 +659,29 @@ export default {
         });
     },
 
-    getImagenEquipo (equipo1, equipo2) {
+    getImagenEquipo(equipo1, equipo2) {
       for (const equipo in this.equipos) {
         if (this.equipos.hasOwnProperty(equipo)) {
-          const element = this.equipos[equipo];          
-          if(element.equipo == equipo1) {
+          const element = this.equipos[equipo];
+          if (element.equipo == equipo1) {
             console.log(element.imagen);
             return element.imagen;
           }
 
-          if(element.equipo == equipo2) {
+          if (element.equipo == equipo2) {
             console.log(element.imagen);
-            
+
             return element.imagen;
           }
         }
       }
     }
-    
   },
 
   watch: {
-    'type': function () {
-
-    }
-  },
+    type: function() {}
+  }
 };
-
 </script>
 <style lang="css" scope>
 .VueCarousel-slide {
@@ -574,27 +689,72 @@ export default {
 }
 
 .VueCarousel-navigation-prev {
-    background-image: url('~@/assets/img/flecha_diblu.png');
-    background-size: cover;
-    transform: rotate(180deg) !important;
-    font-size: 0;
-    height: 236px;
-    width: 114px;
-    margin-top: -120px;
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url("~@/assets/img/flecha_diblu.png");
+  background-size: cover;
+  transform: rotate(180deg) !important;
+  font-size: 0;
+  height: 236px;
+  width: 114px;
+  margin-top: -120px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .VueCarousel-navigation-next {
-    background-image: url('~@/assets/img/flecha_diblu.png');
-    background-size: cover;
-    font-size: 0;
-    height: 236px;
-    width: 114px;
-    margin-right: 114px;
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url("~@/assets/img/flecha_diblu.png");
+  background-size: cover;
+  font-size: 0;
+  height: 236px;
+  width: 114px;
+  margin-right: 114px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#home{
+  height: 100vh;
+  background-image: url('~@/assets/img/539610.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;  
+}
+.logo-karavana{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 380px;
+}
+
+.btn-images{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 120px;
+}
+.footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.footer-link{
+    width: 40px;
+}
+
+.footer-link img{
+    width: 40px;
+}
+
+.footer-link-text{
+    margin-top: -15px;
+    font-size: 10px;
+    color: #5f4d98;
+}
+
+.footer-link > a{
+    text-decoration: none;
 }
 </style>
