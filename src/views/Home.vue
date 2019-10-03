@@ -286,27 +286,31 @@
         <div class="container">
           <div class="row align-items-center full-height">
             <div class="col-12">
-              <img
+              <!--<img
                 src="@/assets/img/2-1400x445.png"
                 class="full-image"
                 alt
                 style="margin-top: -20%; z-index: 99;"
-              />
+              />-->
+              <iframe style="width: 100%; height: 1000px; margin-top: -50%;" src="https://www.youtube.com/embed/r-qCzkqEMUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="your-class">
-                <div class="row align-items-center item-schedule" v-for="(segmento, index) in segmentos" :key="index">
-                <div class="col-4">
-                  <img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />
+                <div v-for="(segmento, index) in segmentos" :key="index">
+                  <div class="row align-items-center item-schedule">
+                    <div class="col-4 offset-2">
+                      <!--<img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />-->
+                      <img src="@/assets/img/image_3.png" style="width: 120px;" alt />
+                    </div>
+                    <div class="col-4">
+                      <h5
+                        class="text-center text-white"
+                      >{{ segmento.nombre }}</h5>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-8">
-                  <h5
-                    class="text-center text-white"
-                  >{{ segmento.nombre }}</h5>
-                </div>
-              </div>
               </div>
             </div>
           </div>
@@ -339,7 +343,7 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
-              <p>Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
             </div>
           </div>
 
@@ -483,8 +487,12 @@ export default {
         this.landing_diblu = false
 
         $(document).ready(function(){
-          $('.your-class').slick({vertical: true, slidesToShow: 3,
-  slidesToScroll: 1});
+          $('.your-class').slick({
+            vertical: true, slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='@/assets/img/flecha_diblu.png'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='../images/shoe_story/arrow-right.png'>"
+          });
         });
 
       }
@@ -597,4 +605,26 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+#ohconde .slick-prev{
+  position: absolute;
+  left: 50%;
+  transform: rotate(90deg);
+  top: 0;
+}
+
+#ohconde .slick-next{
+  position: absolute;
+  right: 48%;
+  bottom: 0;
+  margin-top: 16rem;
+  margin-left: 24px;
+  transform: rotate(90deg);
+}
+
+#ohconde .your-class{
+  margin-bottom: 5      rem;
+  padding-top: 20px;
+}
+
 </style>
