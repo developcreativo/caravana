@@ -486,12 +486,14 @@ export default {
         this.landing_caravana = false
         this.landing_diblu = false
 
+        const ohconde = require('@/assets/img/flecha_diblu.png')
+
         $(document).ready(function(){
           $('.your-class').slick({
             vertical: true, slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='@/assets/img/flecha_diblu.png'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='../images/shoe_story/arrow-right.png'>"
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+ohconde+"'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='"+ohconde+"'>"
           });
         });
 
@@ -609,7 +611,7 @@ export default {
 #ohconde .slick-prev{
   position: absolute;
   left: 50%;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   top: 0;
 }
 
@@ -625,6 +627,7 @@ export default {
 #ohconde .your-class{
   margin-bottom: 5      rem;
   padding-top: 20px;
+  padding-bottom: 6rem;
 }
 
 </style>
