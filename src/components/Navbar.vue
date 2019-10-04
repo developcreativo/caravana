@@ -18,7 +18,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-bottom: 110px;">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">CONDUCTORES</a>
@@ -73,6 +73,7 @@ export default {
 
 <style scoped>
 .logo {
-  width: 100px;
+  width: 270px;
+  margin-bottom: 20px;
 }
 </style>

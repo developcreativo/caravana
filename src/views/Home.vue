@@ -3,6 +3,7 @@
   
 
   <div id="home-view">
+    <navbar v-if="isAuthenticated" :logo="logo_emisora"></navbar>
     <div id="sidebar">
       <ul>
         <li>
@@ -15,22 +16,78 @@
         </li>
         <li>
           <img
-            @click="getEmisoraSegmentosToday(14, 'oh_conde')"
-            src="@/assets/img/boton_ohconde.png"
-            class="full-image"
-            alt
-          />
-        </li>
-        <li>
-          <img
             @click="getEmisoraSegmentosToday(16, 'caravana')"
             src="@/assets/img/boton_RC.png"
             class="full-image"
             alt
           />
         </li>
+        <li>
+          <img
+            @click="getEmisoraSegmentosToday(14, 'oh_conde')"
+            src="@/assets/img/boton_ohconde.png"
+            class="full-image"
+            alt
+          />
+        </li>
+        
       </ul>
     </div>
+    <section id="home">
+      <div class="cover">
+        <div class="container">
+          
+          <div class="row align-items-center full-height">
+
+           
+            <div class="mx-auto">
+             
+            <div class="text-center main-text mb-4">
+              <img  class="logo-karavana" src="@/assets/img/letras_grupocaravana.png" alt="">
+            </div>
+              <a href="#hero" @click="getEmisoraSegmentosToday(13, 'diblu')"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
+              <a href="#caravana" @click="getEmisoraSegmentosToday(16, 'caravana')">
+                <img class="btn-images" src="@/assets/img/boton_RC.png" alt />
+              </a>
+              <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
+                <img class="btn-images" src="@/assets/img/boton_ohconde.png" alt />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="offset-md-9 col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img src="@/assets/img/codigo_etica.png" alt="">
+                                    </p>
+                                    <p class="text-center footer-link-text" href="">Código de ética</p>
+                                </a>
+                            </div>
+                            <div class="col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img class="text-center" src="@/assets/img/comparticion_de_infraestructura.png" alt="">
+                                    </p>
+                                    <p class="text-center footer-link-text" href="">Compartición de la infraestructura</p>
+                                </a>
+                            </div>
+                            <div class="col-md-1 footer-link">
+                                <a href="#">
+                                    <p class="text-center">
+                                        <img class="text-center" src="@/assets/img/rendicion_de_cuentas.png" alt="">
+                                    </p>
+                                    <p href="" class="text-center footer-link-text">Rendición de cuentas</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      </div>
+    </section>
     <template v-if="landing_diblu">
       <section id="hero">
       <div class="cover">
@@ -191,42 +248,26 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
-              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p class="text-center"></p>
             </div>
           </div>
 
-          <div class="row carousel">
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
+          <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+            <slide v-for="(transmision, index) in transmisiones" :key="index">
+              <div class="col-md-12">
+              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
                 <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
+                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                 </div>
                 <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-          </div>
+               
+            </slide>
+            
+        </carousel>
         </div>
       </section>
 
@@ -258,7 +299,7 @@
               <h1 class="text-center">Redes Sociales</h1>
             </div>
             <div class="col-12">
-              <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
+              <p class="text-center"></p>
             </div>
 
             <div class="col-md-4">
@@ -284,7 +325,7 @@
 
       <section class="schedule">
         <div class="container">
-          <div class="row align-items-center full-height">
+          <div class="row align-items-center">
             <div class="col-12">
               <!--<img
                 src="@/assets/img/2-1400x445.png"
@@ -292,22 +333,22 @@
                 alt
                 style="margin-top: -20%; z-index: 99;"
               />-->
-              <iframe style="width: 100%; height: 1000px; margin-top: -50%;" src="https://www.youtube.com/embed/r-qCzkqEMUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe style="width: 100%; height: 600px; margin-top: -37%;" src="https://www.youtube.com/embed/r-qCzkqEMUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="your-class">
-                <div v-for="(segmento, index) in segmentos" :key="index">
+              <div class="your-class h-100">
+                <div v-for="(video, index) in videos" :key="index">
                   <div class="row align-items-center item-schedule">
                     <div class="col-4 offset-2">
                       <!--<img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />-->
-                      <img src="@/assets/img/image_3.png" style="width: 120px;" alt />
+                      <img :src="video.snippet.thumbnails.high.url" alt  class="full-image"/>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 offset-2">
                       <h5
                         class="text-center text-white"
-                      >{{ segmento.nombre }}</h5>
+                      >{{ video.snippet.title }}</h5>
                     </div>
                   </div>
                 </div>
@@ -343,42 +384,26 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
-              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p class="text-center"></p>
             </div>
           </div>
 
-          <div class="row carousel">
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
+          <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+            <slide v-for="(transmision, index) in transmisiones" :key="index">
+              <div class="col-md-12">
+              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
                 <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
+                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                 </div>
                 <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
+                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div style="background-image: url('img/1.png');" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">Copa América</h3>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">21/06/2019 - 13:00 - Cuencua</p>
-                </div>
-              </div>
-            </div>
-          </div>
+               
+            </slide>
+            
+        </carousel>
         </div>
       </section>
 
@@ -410,14 +435,20 @@
 </template>
 <script>
 
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 import api from "../api/session";
-import { Carousel, Slide } from 'vue-carousel';
+import axios from 'axios'
+import { Carousel, Slide } from "vue-carousel";
+import Navbar from '@/components/Navbar';
+const diblu = require('@/assets/img/diblu1.png')
+const RC = require('@/assets/img/logo_grupocaravana.png')
+const ohconde = require('@/assets/img/ohconde2.png')
 export default {
   name: "home",
   components: {
-    'carousel': Carousel,
-    'slide': Slide
+    carousel: Carousel,
+    slide: Slide,
+    Navbar
   },
   data() {
     return {
@@ -425,6 +456,21 @@ export default {
                 slidesToShow: 6,
                 // Any other options that can be got from plugin documentation
             },
+            logo_emisora: '',
+             videos: [],
+      reformattedSearchString: '',
+            api: {
+        baseUrl: 'https://www.googleapis.com/youtube/v3/playlists?',
+        part: 'snippet',
+        type: 'video',
+        order: 'viewCount',
+        maxResults: 12,
+        channelId: 'UCPHFkdGpFWAiWi9JrViJ5uw',
+        q: '',
+        key: 'AIzaSyAU-THD4WG8ruNRIYy7cYNsW5Jd2Q8mD9s',
+        prevPageToken: '',
+        nextPageToken: ''
+      },
       audio_radiodiblu: {
           id: 'radiodiblu',
           name: 'RadioDiblu',
@@ -444,14 +490,35 @@ export default {
       landing_diblu: true,
       langing_oh_conde: false,
       emisora_id: null,
-      type: 'diblu',
+      type: 'caravana',
     };
   },
   mounted() {
     this.getEmisoraSegmentosToday(13, this.type);
     this.getAllEquipos()
+    this.search()
   },
+  computed: mapGetters('auth', [
+    'isAuthenticated',
+  ]),
   methods: {
+     search() {
+      const { baseUrl, part, type, order, maxResults, q, key, channelId} = this.api;
+      const apiUrl = `${baseUrl}part=${part}&channelId=${channelId}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}`;
+      console.log(apiUrl);
+      
+      this.getData(apiUrl);
+    },
+    getData(apiUrl) {
+      axios
+        .get(apiUrl)
+        .then(res => {
+          this.videos = res.data.items;
+          this.api.prevPageToken = res.data.prevPageToken;
+          this.api.nextPageToken = res.data.nextPageToken;
+        })
+        .catch(error => console.log(error));
+    },
     next() {
             this.$refs.slick.next();
         },
@@ -471,29 +538,32 @@ export default {
       this.emisora_id = id;
       this.type = type;
       if(type == 'diblu') {
+        this.logo_emisora = diblu
         this.landing_diblu = true
         this.landing_caravana = false
         this.langing_oh_conde = false
       }
 
        if(type == 'caravana') {
+         this.logo_emisora = RC
         this.landing_caravana = true
         this.landing_diblu = false
         this.langing_oh_conde = false
       }
       if(type == 'oh_conde') {
+        this.logo_emisora = ohconde
         this.langing_oh_conde = true
         this.landing_caravana = false
         this.landing_diblu = false
 
-        const ohconde = require('@/assets/img/flecha_diblu.png')
+        const flecha_diblu = require('@/assets/img/flecha_diblu.png')
 
         $(document).ready(function(){
           $('.your-class').slick({
             vertical: true, slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+ohconde+"'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='"+ohconde+"'>"
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_diblu+"'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_diblu+"'>"
           });
         });
 
@@ -607,7 +677,50 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
 }
+#home{
+  height: 100vh;
+  background-image: url('~@/assets/img/539610.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;  
+}
+.logo-karavana{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 380px;
+}
 
+.btn-images{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 120px;
+}
+.footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.footer-link{
+    width: 40px;
+}
+
+.footer-link img{
+    width: 40px;
+}
+
+.footer-link-text{
+    margin-top: -15px;
+    font-size: 10px;
+    color: #5f4d98;
+}
+
+.footer-link > a{
+    text-decoration: none;
+}
 #ohconde .slick-prev{
   position: absolute;
   left: 50%;
