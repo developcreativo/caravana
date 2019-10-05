@@ -227,7 +227,7 @@
       <section class="schedule">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-3" v-for="(segmento, index) in segmentos" :key="index">
+            <!--<div class="col-md-3" v-for="(segmento, index) in segmentos" :key="index">
               <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
                 <div class="green-box">
                   <h3 class="text-white">{{ segmento.nombre }}</h3>
@@ -238,7 +238,25 @@
                   >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
                 </div>
               </div>
-            </div>
+            </div>-->
+            <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+            <slide v-for="(segmento, index) in segmentos" :key="index">
+              <div class="col-md-12" style="padding:0">
+                <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
+                  <div class="green-box">
+                    <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
+                  </div>
+                  <div class="blue-box">
+                    <p
+                        class="text-center text-white"
+                      >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
+                  </div>
+                </div>
+              </div>
+               
+            </slide>
+            
+        </carousel>
           </div>
         </div>
       </section>
@@ -314,6 +332,197 @@
           </div>
         </div>
       </section>
+
+      <section class="conductores">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">NUESTROS CONDUCTORES</h1>
+              <p class="text-center"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="conductores-carousel h-100">
+            <div class="background-image background-1">
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="background-image background-2">
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="background-image background-3">
+
+            </div>
+            <div class="background-image background-4">
+
+            </div>
+            <div class="background-image background-5">
+
+            </div>
+            <div class="background-image background-6">
+
+            </div>
+            <div class="background-image background-1">
+
+            </div>
+            <div class="background-image background-2">
+
+            </div>
+            <div class="background-image background-3">
+
+            </div>
+            <div class="background-image background-4">
+
+            </div>
+            <div class="background-image background-5">
+
+            </div>
+            <div class="background-image background-6">
+
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="galeria">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">GALERÍA</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="galeria-carousel h-100">
+                <div class="background-image background-1">
+                </div>
+                <div class="background-image background-2">
+
+                </div>
+                <div class="background-image background-3">
+
+                </div>
+                <div class="background-image background-4">
+
+                </div>
+                <div class="background-image background-5">
+
+                </div>
+                <div class="background-image background-6">
+
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="encuestas">
+        <div class="cover-encuestas">
+          <h1 class="text-center">ENCUESTAS</h1>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="encuestas-carousel" style="margin-top: 3rem; margin-bottom: 2rem;">
+                  
+                  <div>
+                    <h3 class="text-center">¿Quien ganará la final de la Copa Liberadores?</h3>
+                    
+                    <div class="container" style="margin-top: 2rem;">
+                      <div class="row">
+                        <div class="col-md-4 offset-md-4" >
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                              Default radio
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                              Second default radio
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-md-8 col-md-6">
+                        <button class="btn btn-danger" style="margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;">
+                          Votar
+                        </button>
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                  <div>
+                    <h3 class="text-center">¿Quien ganará la final de la Copa Liberadores 2?</h3>
+                    <div class="container" style="margin-top: 2rem;">
+                      <div class="row">
+                        <div class="col-md-4 offset-md-4" >
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                              Default radio
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                              Second default radio
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-md-8 col-md-6">
+                        <button class="btn btn-danger btn-votar">
+                          Votar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="grabaciones">
+
+        <div class="container">
+          <div class="row">
+
+          </div>
+        </div>
+
+      </section>
+
+      
+
     </div>
     </template>
 
@@ -549,6 +758,35 @@ export default {
         this.landing_caravana = true
         this.landing_diblu = false
         this.langing_oh_conde = false
+
+        const flecha_conductores = require('@/assets/img/flecha_der_conductores.png')
+        const flecha_galeria = require('@/assets/img/flecha_der_galeria.png')
+
+        $(document).ready(function(){
+          $(".conductores-carousel").slick({
+            rows:2,
+            slidesToShow: 3,
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_conductores+"'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_conductores+"'>"
+          })
+        })
+
+        $(document).ready(function(){
+          $(".galeria-carousel").slick({
+            rows:2,
+            slidesToShow: 2,
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_galeria+"'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_galeria+"'>"
+          })
+        })
+
+        $(document).ready(function(){
+          $(".encuestas-carousel").slick({
+            arrows:false,
+            dots:true
+          })
+        })
+
       }
       if(type == 'oh_conde') {
         this.logo_emisora = ohconde
@@ -653,6 +891,107 @@ export default {
   visibility: visible;
 }
 
+.conductores-carousel .background-image{
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+    
+}
+
+.conductores .slick-prev{
+  transform: rotate(180deg);
+  margin-top: -10px;
+  z-index: 999;
+  height: 40px;
+  width: 40px;
+}
+
+.conductores .slick-next{
+  height: 40px;
+  width: 40px;
+}
+
+.galeria-carousel .background-image{
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+    
+}
+.conductores-carousel .background-1{
+  background-image: url('~@/assets/img/image_3.png')
+}
+
+.conductores-carousel .background-2{
+  background-image: url('~@/assets/img/image_1.png')
+}
+
+.conductores-carousel .background-3{
+  background-image: url('~@/assets/img/telefonos.png')
+}
+
+.conductores-carousel .background-4{
+  background-image: url('~@/assets/img/proactividad.png')
+}
+
+.conductores-carousel .background-5{
+  background-image: url('~@/assets/img/responsabilidad.png')
+}
+
+.conductores-carousel .background-6{
+  background-image: url('~@/assets/img/siguenos.png')
+}
+
+.conductores-carousel .background-1{
+  background-image: url('~@/assets/img/image_3.png')
+}
+
+.conductores .slick-slide > div{
+  padding: 30px;
+}
+
+.galeria-carousel .background-1{
+  background-image: url('~@/assets/img/image_3.png')
+}
+
+.galeria-carousel .background-2{
+  background-image: url('~@/assets/img/image_1.png')
+}
+
+.galeria-carousel .background-3{
+  background-image: url('~@/assets/img/telefonos.png')
+}
+
+.galeria-carousel .background-4{
+  background-image: url('~@/assets/img/proactividad.png')
+}
+
+.galeria-carousel .background-5{
+  background-image: url('~@/assets/img/responsabilidad.png')
+}
+
+.galeria-carousel .background-6{
+  background-image: url('~@/assets/img/siguenos.png')
+}
+
+.galeria .slick-slide > div{
+  padding: 30px;
+}
+
+.galeria .slick-prev{
+  transform: rotate(180deg);
+  margin-top: -10px;
+  z-index: 999;
+  height: 40px;
+  width: 40px;
+}
+
+.galeria .slick-next{
+  height: 40px;
+  width: 40px;
+}
+
 .VueCarousel-navigation-prev {
     background-image: url('~@/assets/img/flecha_diblu.png');
     background-size: cover;
@@ -677,6 +1016,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #home{
   height: 100vh;
   background-image: url('~@/assets/img/539610.jpg');
@@ -741,6 +1081,173 @@ export default {
   margin-bottom: 5      rem;
   padding-top: 20px;
   padding-bottom: 6rem;
+}
+
+.conductores .slick-slide {
+    margin: 0px 40px;
+  }
+  /* the parent */
+.conductores .slick-list {
+    margin: 0px -40px;
+  }
+
+.galeria .slick-slide {
+    margin: 0px 40px;
+  }
+  /* the parent */
+.galeria .slick-list {
+    margin: 0px -40px;
+  }
+
+.conductores h1{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.conductores h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+.cover-conductores{
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+}
+
+.galeria h1{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.galeria h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+.encuestas{
+  margin-top: 6rem;
+  background-image: url('~@/assets/img/test.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+.encuestas h1{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.encuestas h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+.encuestas .cover-encuestas{
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.encuestas [type="radio"]:checked,
+.encuestas [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.encuestas [type="radio"]:checked + label,
+.encuestas [type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+.encuestas [type="radio"]:checked + label:before,
+.encuestas [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+.encuestas [type="radio"]:checked + label:after,
+.encuestas [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #e10713;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.encuestas [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.encuestas [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.encuestas .slick-dots li button{
+  background-color: white;
+  width: 60px !important;
+  border-radius: 20px;
+}
+
+.encuestas .slick-dots li button:hover{
+  background-color: #e10713;
+}
+
+.encuestas .slick-dots .slick-active button{
+  background-color: #e10713;
+}
+
+.encuestas .slick-dots li button:before{
+  width: 60px !important;
+  color: transparent !important;
+}
+
+.encuestas .slick-dots li{
+  width: 60px;
+}
+
+.btn-votar{
+  margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;
 }
 
 </style>

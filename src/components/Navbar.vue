@@ -4,7 +4,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="#">
-        <img :src="logo" alt="" class="full-image logo">
+        <img :src="logo" alt="" class="logo" style="margin-top: -80px; width: 60px;">
       </a>
       <button
         class="navbar-toggler"
