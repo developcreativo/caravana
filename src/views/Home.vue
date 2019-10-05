@@ -515,10 +515,290 @@
 
         <div class="container">
           <div class="row">
-
+            <div class="col-12">
+              <h1 class="text-center">Grabaciones</h1>
+              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+            </div>
+            <div class="col-8 offset-2">
+              <div id="grabaciones-list">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-8">
+                          <h4>Escandalo</h4>
+                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                        </div>
+                        <div class="col-2" style="padding-top: 2rem;">
+                          <a href="#"><i class="fa fa-download"></i></a>
+                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+      </section>
+
+      <section class="somos">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">QUIENES SOMOS</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <p class="text-center">
+                <img src="@/assets/img/innovacion.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">INNOVACIÓN</h2>
+              <p class="text-center">
+                Innovar mostrando destreza y compromiso para variar respecto a las exigencias que plantea las nuevas demandas tecnológicas.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-center" style="margin-top: 70px;">
+                <img src="@/assets/img/compromiso.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">COMPROMISO</h2>
+              <p class="text-center">
+               Mantener la interacción con la audiencia y tener sensibilidad para con las necesidades y preocupaciones de las comunidades
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-center">
+                <img src="@/assets/img/calidad.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">CALIDAD</h2>
+              <p class="text-center">
+                Satisfacer la permanente demanda informativa de nuestra audiencia convirtiéndonos en una marca reconocida en materia deportiva
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-center">
+                <img src="@/assets/img/responsabilidad.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">RESPONSABILIDAD</h2>
+              <p class="text-center">
+                Respetar las regulaciones de las leyes que rigen nuestra sociedad, adaptando nuestros objetivos a las normas constituidas sin alterar la calidad de la producción y de la difusión de contenidos.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-center">
+                <img src="@/assets/img/motivacion.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">MOTIVACIÓN</h2>
+              <p class="text-center">
+                Innovar mostrando destreza y compromiso para variar respecto a las exigencias que plantea nuevas demandas tecnológicas.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-center">
+                <img src="@/assets/img/proactividad.png" style="width:120px;" alt="">
+              </p>
+              <h2 class="text-center">PROACTIVIDAD</h2>
+              <p class="text-center">
+                Participar activamente, mediante la práctica de nuestra actividad, en la estimulación de formación de valores de nuestra sociedad.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       
@@ -1248,6 +1528,64 @@ export default {
 
 .btn-votar{
   margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;
+}
+
+.grabaciones h1{
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+.grabaciones h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+#grabaciones-list{
+  widows: 100%;
+  background-color: #eeeeee;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  height: 600px;
+  overflow-y: auto;
+  margin-bottom: 3rem;
+}
+
+#grabaciones-list .card{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+.somos{
+  background-color: #edeef0;
+}
+
+.somos h1{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.somos h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
 }
 
 </style>
