@@ -770,6 +770,8 @@
                 Satisfacer la permanente demanda informativa de nuestra audiencia convirtiéndonos en una marca reconocida en materia deportiva
               </p>
             </div>
+          </div>
+          <div class="row" style="margin-top: 40px;">
             <div class="col-md-4">
               <p class="text-center">
                 <img src="@/assets/img/responsabilidad.png" style="width:120px;" alt="">
@@ -800,6 +802,100 @@
           </div>
         </div>
       </section>
+
+      <section class="contactenos">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">CONTÁCTENOS</h1>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <hr class="right-line">
+            <div class="col-md-6">
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico">
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Teléfono">
+              <textarea class="form-control custom-form" placeholder="Mensaje" rows="10"></textarea>
+              <button class="btn btn-primary btn-enviar" style="float: right;">
+                ENVIAR
+              </button>
+
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-12">
+                  <div style="width: 60px; height: 60px; float: left;">
+                    <i class="fa fa-map-marker custom-icon" aria-hidden="true"></i> 
+                  </div>
+                  <div>
+                    Av. Juan Tanca Marengo Km 3 <br> junto a las antenas de TVCable.
+                  </div>
+                </div>
+                </div>
+              <div class="row">
+                <div class="col-12">
+                  <div style="width: 60px; height: 60px; float: left;">
+                    <i class="fa fa-phone custom-icon" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    042317182 - 042317183 - 0989266897
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div style="width: 60px; height: 90px; float: left;">
+                    <i class="fa fa-envelope custom-icon" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <p>info@diblu.ec</p>
+                    <p>info@radiocaravana.ec</p>
+                    <p>info@ohconde.ec</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">
+                        <img src="@/assets/img/grupocaravana4.png" alt="" style="width: 130px;">
+                    </p>
+                </div>
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-dark" style="padding: 0px;">
+                        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="collapse-navbar">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">CONDUCTORES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">ENCUESTAS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">GRABACIONES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">QUIENES SOMOS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">CONTÁCTENOS</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
 
       
 
@@ -1316,7 +1412,6 @@ export default {
     width: 120px;
 }
 .footer{
-    position: absolute;
     width: 100%;
     bottom: 0;
     height: 120px;
@@ -1586,6 +1681,62 @@ export default {
     width: 100px;
     border-bottom: 4px #e10713 solid;
     margin-top: 14px;
+}
+
+.contactenos h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+.contactenos{
+  background-color: #edeef0;
+  padding-bottom: 6rem;
+}
+
+.contactenos h1{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.custom-form{
+  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.custom-icon{
+  font-size: 50px;
+}
+
+.right-line{
+  width: 1px;
+  height: 70%;
+  background-color: #000;
+  position: absolute;
+  left: 50%;
+}
+
+.btn-enviar{
+  border-radius: 0px;
+}
+
+.footer{
+
+    width: 100%;
+    height: 250px;
+    padding-top: 2rem;
+    background-color: #0b091a;
+    padding-bottom: 2rem;
+
 }
 
 </style>
