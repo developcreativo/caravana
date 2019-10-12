@@ -8,7 +8,7 @@
       <ul>
         <li>
           <img
-            @click="getEmisoraSegmentosToday(13, 'diblu')"
+            @click="getSegmentosDiblu(13)"
             src="@/assets/img/boton_diblu.png"
             class="full-image"
             alt
@@ -16,7 +16,7 @@
         </li>
         <li>
           <img
-            @click="getEmisoraSegmentosToday(14, 'caravana')"
+            @click="getSegmentosCaravana(14, 'caravana')"
             src="@/assets/img/boton_RC.png"
             class="full-image"
             alt
@@ -45,8 +45,8 @@
             <div class="text-center main-text mb-4 logo-karavana ml-2 mr-2">
               <img  class="img-fluid bg-cover rounded-0 w-100" src="@/assets/img/letras_grupocaravana.png" alt="">
             </div>
-              <a href="#hero" @click="getEmisoraSegmentosToday(13, 'diblu')"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
-              <a href="#caravana img-fluid" @click="getEmisoraSegmentosToday(16, 'caravana')">
+              <a href="#hero" @click="getSegmentosDiblu(13)"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
+              <a href="#caravana" @click="getSegmentosCaravana(16)">
                 <img class="btn-images" src="@/assets/img/boton_RC.png" alt />
               </a>
               <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
@@ -101,10 +101,9 @@
       </div>
     </section>
 
-    <section id="schedule">
-      <!--<div class="container-fluid">-->
+    <section id="schedule" v-if="transmisiones_diblu.length > 0">
         <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(segmento, index) in segmentos" :key="index">
+            <slide v-for="(segmento, index) in segmentos_diblu" :key="index">
               <div style="padding:0">
                 <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
                   <div class="green-box">
@@ -121,7 +120,6 @@
             </slide>
             
         </carousel>
-      <!--</div>-->
     </section>
 
      <section class="transmissions">
@@ -134,7 +132,7 @@
           </div>
 
           <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(transmision, index) in transmisiones" :key="index">
+            <slide v-for="(transmision, index) in transmisiones_diblu" :key="index">
               <div class="col-md-12 sli-p" style="padding:0">
                 <div v-if="transmision.equipo1" style="padding-top: 20%;" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="img-fluid bg-image">
                   <div class="green-box" style="width: 200px;">
@@ -207,7 +205,7 @@
         <div class="container-fluid" style="overflow:hidden">
           <div class="row">
             <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-              <slide v-for="(segmento, index) in segmentos" :key="index">
+              <slide v-for="(segmento, index) in segmentos_caravana" :key="index">
                 <div class="col-md-12" style="padding:0; height: 230px;">
                   <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
                     <div class="green-box">
@@ -236,7 +234,7 @@
           </div>
 
           <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(transmision, index) in transmisiones" :key="index">
+            <slide v-for="(transmision, index) in transmisiones_caravana" :key="index">
               <div class="col-md-12 sli-p" style="padding:0">
                 <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="img-fluid bg-image">
                   <div class="green-box">
@@ -816,6 +814,10 @@ export default {
       
       isPlayingPodCasts: false,
       segmentos: [],
+      segmentos_caravana: [],
+      segmentos_diblu: [],
+      transmisiones_diblu: [],
+      transmisiones_caravana: [],
       equipos: [],
       conductores: [],
       encuestas: [],
@@ -837,12 +839,14 @@ export default {
     const token = localStorage.getItem('TOKEN_STORAGE_KEY');
    // !token ? this.login(this.inputs) : ''
     this.getConductores()
-    this.getEmisoraSegmentosToday(13, this.type);
+    //this.getEmisoraSegmentosToday(13, this.type);
     this.getAllEquipos()
     this.search()
     this.getEncuestas()
     this.getPodCast()
     this.getGaleria()
+    this.getSegmentosDiblu(13)
+    this.getSegmentosCaravana(14)
   },
   mounted() {
     
@@ -884,6 +888,52 @@ export default {
                     // Helpful if you have to deal with v-for to update dynamic lists
                     this.$refs.slick.reSlick()
             },
+    getSegmentosDiblu (id) {
+      const url = `/emisoras/${id}/segmentos/today?format=json`;
+      this.logo_emisora = diblu
+       api
+        .get(url)
+        .then(res => {
+          this.segmentos_diblu = res.data;
+            const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
+          api.get(url_transmisiones, { crossdomain: true })
+            .then(res => {
+              this.transmisiones_diblu = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
+
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
+    getSegmentosCaravana(id) {
+      const url = `/emisoras/${id}/segmentos/today?format=json`;
+      this.logo_emisora = RC
+       api
+        .get(url)
+        .then(res => {
+          this.segmentos_caravana = res.data;
+            const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
+          api.get(url_transmisiones, { crossdomain: true })
+            .then(res => {
+              this.transmisiones_caravana = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
+
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
     getEmisoraSegmentosToday(id, type) {
       const url = `/emisoras/${id}/segmentos/today?format=json`;
       this.emisora_id = id;
