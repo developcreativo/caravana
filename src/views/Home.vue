@@ -348,13 +348,13 @@
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
                 <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
           </div>
@@ -366,7 +366,7 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
-              <p class="text-center"></p>
+              <p class="text-center" style="margin-top: 2rem;">Lorem ipsum Lorem ipsum Lorem ipsum</p>
             </div>
           </div>
 
