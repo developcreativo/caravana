@@ -55,7 +55,6 @@ export default new Router({
   {
     path: '/home',
     component: Home,
-    beforeEnter: requireAuthenticated,
   },
   {
     path: '/password_reset',

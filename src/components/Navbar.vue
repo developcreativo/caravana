@@ -3,21 +3,10 @@
    
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">
-        <img :src="logo" alt="" class="logo" style="margin-top: -80px; width: 60px;">
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      <router-link class="navbar-brand" to="/home">
+          <img :src="logo" alt="" class="logo img-fluid" style="width: 60px;">
+      </router-link>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-bottom: 110px;">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -35,12 +24,22 @@
           <li class="nav-item">
             <a class="nav-link" href="#">CONTÁCTENOS</a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <img src="@/assets/img/avatar.png" alt style="width: 40px;" />
           </li>
           <li class="nav-item" style="margin-left: -10px;">
             <a class="nav-link" href="#">USUARIO</a>
+            
+          </li>-->
+          <li class="nav-item" style="margin-left: -10px;">
+            <router-link class="nav-link" to="/register">
+              REGISTRO
+            </router-link>
           </li>
+
+          <router-link class="nav-link login-btn" to="/login">
+                INICIAR SESIÓN
+          </router-link>
         </ul>
       </div>
     </nav>
@@ -59,15 +58,8 @@ export default {
       default: img
     },
   },
-  components: {
-    Emisoras
-  },
-  computed: mapState({
-    emisoras: state => state.emisoras.emisoras
-  }),
-  created() {
-    this.$store.dispatch("emisoras/getEmisoras");
-  }
+ 
+  
 };
 </script>
 

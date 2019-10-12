@@ -93,7 +93,7 @@ export default {
     };
   },
   mounted() {
-    this.login(this.inputs);
+   // this.login(this.inputs);
   },
   methods: {
     login({ username, password }) {
