@@ -368,34 +368,114 @@
               </div>
             </div>
             <div class="background-image background-3">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-4">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-5">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-6">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-1">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-2">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-3">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-4">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-5">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="background-image background-6">
-
+              <div class="cover-conductores">
+                <div class="container-fluid" style="height: 100%;">
+                  <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-12">
+                      <h3 class="text-center text-white">Lorem ipsum</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
             </div>
@@ -447,14 +527,14 @@
                 <div class="encuestas-carousel" style="margin-top: 3rem; margin-bottom: 2rem;">
                   
                   <div>
-                    <h3 class="text-center">¿Quien ganará la final de la Copa Liberadores?</h3>
+                    <h3 class="text-center pregunta">¿Quien ganará la final de la Copa Liberadores?</h3>
                     
                     <div class="container" style="margin-top: 2rem;">
                       <div class="row">
                         <div class="col-md-4 offset-md-4" >
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <label class="form-check-label respuesta" for="exampleRadios1">
                               Default radio
                             </label>
                           </div>
@@ -529,12 +609,12 @@
                           <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
                         </div>
                         <div class="col-8">
-                          <h4>Escandalo</h4>
+                          <h4 class="titulo">Escandalo</h4>
                           <div class="progress" style="height: 2px; margin-bottom: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0" class="subitutlo">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0" class="subitutlo">00:03:15</p>
                         </div>
                         <div class="col-2" style="padding-top: 2rem;">
                           <a href="#"><i class="fa fa-download"></i></a>
@@ -602,8 +682,8 @@
                           <div class="progress" style="height: 2px; margin-bottom: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
+                          <p style="float: left; margin-top: 5px; margin-bottom: 0" class="subtitulo">06/10/2019</p>
+                          <p style="float: right; margin-bottom: 0" class="subtitulo">00:03:15</p>
                         </div>
                         <div class="col-2" style="padding-top: 2rem;">
                           <a href="#"><i class="fa fa-download"></i></a>
@@ -1018,6 +1098,7 @@
     </template>
   </div>
 </template>
+
 <script>
 
 import { mapActions, mapState, mapGetters } from "vuex";
@@ -1082,6 +1163,13 @@ export default {
     this.getEmisoraSegmentosToday(13, this.type);
     this.getAllEquipos()
     this.search()
+    $(document).scroll(function() {
+      if($(document).scrollTop() > 10){
+        $("#navbar nav").addClass('darknav')
+      }else{
+        $("#navbar nav").removeClass('darknav')
+      }
+   })
   },
   computed: mapGetters('auth', [
     'isAuthenticated',
@@ -1275,6 +1363,10 @@ export default {
     
 }
 
+.conductores-carousel .background-image:hover >.cover-conductores{
+  visibility: visible;
+}
+
 .conductores .slick-prev{
   transform: rotate(180deg);
   margin-top: -10px;
@@ -1441,6 +1533,7 @@ export default {
   left: 50%;
   transform: rotate(-90deg);
   top: 0;
+  margin-top: -20px;
 }
 
 #ohconde .slick-next{
@@ -1492,9 +1585,10 @@ export default {
 }
 
 .cover-conductores{
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(95, 77, 152, 0.7);
   height: 100%;
   width: 100%;
+  visibility: hidden;
 }
 
 .galeria h1{
@@ -1622,7 +1716,12 @@ export default {
 }
 
 .btn-votar{
-  margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;
+  margin-bottom: 4rem; 
+  padding-left: 25px; 
+  padding-right: 25px; 
+  border-radius: 0; 
+  background-color: #e10713;
+  margin-top: 2rem;
 }
 
 .grabaciones h1{
@@ -1644,7 +1743,7 @@ export default {
 
 #grabaciones-list{
   widows: 100%;
-  background-color: #eeeeee;
+  background-color: #f7f7f8;
   padding-top: 3rem;
   padding-bottom: 3rem;
   padding-left: 6rem;
@@ -1705,12 +1804,17 @@ export default {
   margin-bottom: 6rem;
 }
 
+.contactenos p{
+  color: #444242;
+}
+
 .custom-form{
   border: none;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 25px;
   border-radius: 10px;
+  color: #9a999e;
 }
 
 .custom-icon{
@@ -1720,13 +1824,19 @@ export default {
 .right-line{
   width: 1px;
   height: 70%;
-  background-color: #000;
+  color: #8c8c8c;
+  background-color: #8c8c8c; 
   position: absolute;
   left: 50%;
 }
 
 .btn-enviar{
   border-radius: 0px;
+}
+
+.contactenos .col-md-6{
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .footer{
@@ -1737,6 +1847,26 @@ export default {
     background-color: #0b091a;
     padding-bottom: 2rem;
 
+}
+
+.encuesta .pregunta{
+  color: #211915;
+}
+
+.encuesta .respuesta{
+  color: #444242;
+}
+
+.grabaciones .titulo{
+  color: #444242;
+}
+
+.grabaciones .subtitulo{
+  color: #727176;
+}
+
+.darknav{
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 </style>
