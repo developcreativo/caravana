@@ -1,7 +1,4 @@
 <template>
-
-  
-
   <div id="home-view">
     <navbar :logo="logo_emisora"></navbar>
     <div id="sidebar">
@@ -413,7 +410,7 @@
     </template>
       <section class="conductores">
 
-        <div class="container" style="overflow:hidden">
+        <div class="container">
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">NUESTROS CONDUCTORES</h1>
@@ -422,26 +419,25 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
-                 <div class="conductores-carousel h-100 no-movil" v-if="conductores.length > 0">
-                    
-                    <slick :options="option_radio">
-                     <div v-for="conductor in conductores" :key="conductor.id">
-                        <div class="cover-conductores">
-                          <div class="container-fluid" style="height: 100%;">
-                            <div class="row align-items-center" style="height: 100% ;">
-                              <div class="col-12">
-                                <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                 <div class="conductores-carousel h-100 d-none d-sm-none d-md-block" v-if="conductores.length > 0">
+                      <slick :options="option_radio">
+                        <div v-for="conductor in conductores" :key="conductor.id">
+                           <div   v-if="conductor.imagen != null" class="background-conductores"  :style="{ 'background-image': 'url(' + conductor.imagen + ')' }">
+                            <div class="cover-conductores">
+                              <div class="container-fluid" style="height: 100%;">
+                                <div class="row align-items-center" style="height: 100% ;">
+                                  <div class="col-12">
+                                    <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                                  </div>
+                                </div>
                               </div>
                             </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                     
-                    
-                  </slick>
+                    </slick>
                   </div>
 
-                  <div class="conductores-carousel h-100 movil" v-if="conductores.length > 0">
+                  <div class="conductores-carousel h-100 d-block d-sm-block d-md-none" v-if="conductores.length > 0">
 
                    <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
                       <slide v-for="conductor in conductores" :key="conductor.id">
@@ -846,6 +842,8 @@ export default {
     this.getGaleria()
     this.getSegmentosDiblu(13)
     this.getSegmentosCaravana(14)
+
+   
   },
   mounted() {
     
@@ -858,7 +856,6 @@ export default {
      search() {
       const { baseUrl, part, type, order, maxResults, q, key, channelId} = this.api;
       const apiUrl = `${baseUrl}part=${part}&channelId=${channelId}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}`;
-      console.log(apiUrl);
       
       this.getData(apiUrl);
     },
@@ -1132,19 +1129,6 @@ export default {
 
     }
   },
-  created(){
-    
-    $(document).scroll(function() {
-        if($(document).scrollTop() > 10){
-          $("#navbar .navbar").addClass("dark-transparent-navbar")
-          console.log($(document).scrollTop())
-        }else{
-          $("#navbar .navbar").removeClass("dark-transparent-navbar")
-        }
-    })
-    
-
-  }
 };
 
 </script>
@@ -1403,7 +1387,6 @@ export default {
   background-color: rgba(95, 77, 152, 0.7);
   height: 100%;
   width: 100%;
-  visibility: hidden;
 }
 
 .galeria h1{
@@ -1699,6 +1682,26 @@ export default {
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+#grabaciones-list{
+  widows: 100%;
+  background-color: #f7f7f8;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  height: 600px;
+  overflow-y: auto;
+  margin-bottom: 3rem;
+}
+
+#grabaciones-list .card{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
 }
 #hero{
     height: 100vh;

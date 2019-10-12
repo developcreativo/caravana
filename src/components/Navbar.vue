@@ -45,18 +45,41 @@
     </nav>
 
     <nav class="navbar navbar-light bg-light fixed-top mobile-only">
-      <i class="fa fa-bars" style="float: right; color: #fff; font-size: 30px; margin-top: 10px; margin-right: 10px; cursor: pointer;" onclick="toggleSidebar()">
-
-      </i>
+       <router-link class="navbar-brand" to="/home">
+          <img :src="logo" alt="" class="logo img-fluid" style="width: 60px;">
+      </router-link>
+      <i class="fa fa-bars" style="float: right; color: #fff; font-size: 30px; margin-top: 10px; margin-right: 10px; cursor: pointer;"  v-on:click="toggleNavbar"></i>
     </nav>
     
-    <div id="sidebar" style="width: 200px; position: fixed; top: 0; height: 100%; background-color: red; left: 0; padding-top: 70px; z-index: 1;background-color: #0b091a;">
+    <div id="sidebar" style="width: 250px; position: fixed; top: 0; height: 100%; background-color: red; left: 0; padding-top: 70px; z-index: 1;background-color: #0b091a; display:none" v-bind:class="{ 'show': show }">
+
       <ul class="list-group" style="padding: 0px;">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">
+          <a class="nav-link" href="#">CONDUCTORES</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" href="#">ENCUESTAS</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" href="#">GRABACIONES</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" href="#">QUIENES SOMOS</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" href="#">CONTÁCTENOS</a>
+        </li>
+        <li class="list-group-item">
+          <router-link class="nav-link" to="/register">
+              REGISTRO
+            </router-link>
+        </li>
+
+        <li class="list-group-item">
+         <router-link class="nav-link login-btn" to="/login">
+                INICIAR SESIÓN
+          </router-link>
+        </li>
       </ul>
     </div>
 
@@ -75,6 +98,17 @@ export default {
       default: img
     },
   },
+ data() {
+    return {
+      show: false
+    }
+  },
+
+  methods: {
+    toggleNavbar () {
+      this.show = !this.show;
+    }
+  }
  
   
 };
@@ -84,5 +118,8 @@ export default {
 .logo {
   width: 270px;
   margin-bottom: 20px;
+}
+.show {
+  display: block !important;
 }
 </style>
