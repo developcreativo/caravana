@@ -3,7 +3,7 @@
   
 
   <div id="home-view">
-    <navbar v-if="isAuthenticated" :logo="logo_emisora"></navbar>
+    <navbar :logo="logo_emisora"></navbar>
     <div id="sidebar">
       <ul>
         <li>
@@ -16,7 +16,7 @@
         </li>
         <li>
           <img
-            @click="getEmisoraSegmentosToday(16, 'caravana')"
+            @click="getEmisoraSegmentosToday(14, 'caravana')"
             src="@/assets/img/boton_RC.png"
             class="full-image"
             alt
@@ -24,7 +24,7 @@
         </li>
         <li>
           <img
-            @click="getEmisoraSegmentosToday(14, 'oh_conde')"
+            @click="getEmisoraSegmentosToday(16, 'oh_conde')"
             src="@/assets/img/boton_ohconde.png"
             class="full-image"
             alt
@@ -34,32 +34,33 @@
       </ul>
     </div>
     <section id="home">
-      <div class="cover">
+      <div class="cover-main">
         <div class="container">
           
           <div class="row align-items-center full-height">
 
            
-            <div class="mx-auto">
+            <div class="mx-auto text-center">
              
-            <div class="text-center main-text mb-4">
-              <img  class="logo-karavana" src="@/assets/img/letras_grupocaravana.png" alt="">
+            <div class="text-center main-text mb-4 logo-karavana ml-2 mr-2">
+              <img  class="img-fluid bg-cover rounded-0 w-100" src="@/assets/img/letras_grupocaravana.png" alt="">
             </div>
               <a href="#hero" @click="getEmisoraSegmentosToday(13, 'diblu')"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
-              <a href="#caravana" @click="getEmisoraSegmentosToday(16, 'caravana')">
+              <a href="#caravana img-fluid" @click="getEmisoraSegmentosToday(16, 'caravana')">
                 <img class="btn-images" src="@/assets/img/boton_RC.png" alt />
               </a>
               <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
-                <img class="btn-images" src="@/assets/img/boton_ohconde.png" alt />
+                <img class="btn-images img-fluid" src="@/assets/img/boton_ohconde.png" alt />
               </a>
             </div>
           </div>
         </div>
 
-        <div class="footer">
+        <div class="footer-main">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="offset-md-9 col-md-1 footer-link">
+                      <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight ml-5">
+                          <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
                                         <img src="@/assets/img/codigo_etica.png" alt="">
@@ -67,7 +68,9 @@
                                     <p class="text-center footer-link-text" href="">Código de ética</p>
                                 </a>
                             </div>
-                            <div class="col-md-1 footer-link">
+                        </div>
+                        <div class="p-2 bd-highlight ml-5">
+                            <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
                                         <img class="text-center" src="@/assets/img/comparticion_de_infraestructura.png" alt="">
@@ -75,7 +78,9 @@
                                     <p class="text-center footer-link-text" href="">Compartición de la infraestructura</p>
                                 </a>
                             </div>
-                            <div class="col-md-1 footer-link">
+                        </div>
+                        <div class="p-2 bd-highlight ml-2">
+                            <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
                                         <img class="text-center" src="@/assets/img/rendicion_de_cuentas.png" alt="">
@@ -84,27 +89,15 @@
                                 </a>
                             </div>
                         </div>
+                      </div>
                     </div>
                 </div>
       </div>
     </section>
-    <template v-if="landing_diblu">
+    <template>
       <section id="hero">
       <div class="cover">
-        <div class="container">
-          <div class="row align-items-center full-height">
-            <div class="col-12">
-              <h1 class="text-center main-text">
-                ESCÚCHANOS
-                <span class="green-text">EN VIVO</span> AHORA
-              </h1>
-              <p class="text-center">
-                <img @click.prevent="playSoundDiBlu()" style="width: 120px;" src="@/assets/img/play_diblu.png" alt />
-                <!--<audio src="http://www.makrodigital.com:8137/radiodiblu" crossorigin="anonymous" id="audio" controls></audio>-->
-              </p>
-            </div>
-          </div>
-        </div>
+        <player-radio file="http://www.makrodigital.com:8137/radiodiblu" type="diblu"></player-radio>
       </div>
     </section>
 
@@ -112,12 +105,12 @@
       <!--<div class="container-fluid">-->
         <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
             <slide v-for="(segmento, index) in segmentos" :key="index">
-              <div class="col-md-12" style="padding:0">
-                <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
+              <div style="padding:0">
+                <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
                   <div class="green-box">
                     <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
                   </div>
-                  <div class="blue-box">
+                  <div class="blue-box" style="font-size: 12px;">
                     <p
                         class="text-center text-white"
                       >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
@@ -131,33 +124,31 @@
       <!--</div>-->
     </section>
 
-    <section id="transmissions">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="text-center">Transmisiones</h1>
-            <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum </p>
+     <section class="transmissions">
+        <div class="container" style="overflow:hidden">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">Transmisiones</h1>
+              <p class="text-center" style="margin-top: 2rem;">lorem ipsum lorem ipsum lorem ipsum</p>
+            </div>
           </div>
-        </div>
 
-        <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+          <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
             <slide v-for="(transmision, index) in transmisiones" :key="index">
-              <div class="col-md-12">
-              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
-                <div class="green-box">
-                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+              <div class="col-md-12 sli-p" style="padding:0">
+                <div v-if="transmision.equipo1" style="padding-top: 20%;" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="img-fluid bg-image">
+                  <div class="green-box" style="width: 200px;">
+                    <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+                  </div>
+                  <div class="blue-box" style="background-color: #2c2469; width: 60%; margin-left: 20px; font-size: 10px;">
+                    <p class="text-center text-white" style="font-size: 12px;">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-               
             </slide>
-            
-        </carousel>
-      </div>
-    </section>
+          </carousel>
+        </div>
+      </section>
 
     <section id="follow-us">
       <div class="cover">
@@ -167,13 +158,13 @@
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
                 <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
                 <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
         </div>
@@ -191,101 +182,161 @@
           </div>
 
           <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
+            <img src="@/assets/img/redes1.png" class="full-image" alt />
           </div>
           <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
+            <img src="@/assets/img/redes2.png" class="full-image" alt />
           </div>
           <div class="col-md-4">
-            <img src="@/assets/img/image_3.png" class="full-image" alt />
+            <img src="@/assets/img/redes3.png" class="full-image" alt />
           </div>
         </div>
       </div>
     </section>
     </template>
 
-    <template v-if="landing_caravana">
+    <template>
       <div id="caravana">
       <section class="hero">
         <div class="cover">
-          <div class="container">
-            <div class="row align-items-center full-height">
-              <div class="col-12">
-                <h1 class="text-center main-text">
-                  ESCÚCHANOS
-                  <span class="red-text">EN VIVO</span> AHORA
-                </h1>
-                <p class="text-center">
-                  <img @click.prevent="playSoundCaravana()" style="width: 120px;" src="@/assets/img/play_RC.png" alt />
-                </p>
-              </div>
-            </div>
-          </div>
+          <player-radio file="http://www.makrodigital.com:8006/radiocaravana" type="caravana"></player-radio>
         </div>
       </section>
 
       <section class="schedule">
-        <div class="container-fluid">
+        <div class="container-fluid" style="overflow:hidden">
           <div class="row">
-            <!--<div class="col-md-3" v-for="(segmento, index) in segmentos" :key="index">
-              <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
-                <div class="green-box">
-                  <h3 class="text-white">{{ segmento.nombre }}</h3>
-                </div>
-                <div class="blue-box">
-                  <p
-                    class="text-center text-white"
-                  >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
-                </div>
-              </div>
-            </div>-->
             <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(segmento, index) in segmentos" :key="index">
-              <div class="col-md-12" style="padding:0">
-                <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="bg-image">
-                  <div class="green-box">
-                    <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
-                  </div>
-                  <div class="blue-box">
-                    <p
-                        class="text-center text-white"
-                      >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
+              <slide v-for="(segmento, index) in segmentos" :key="index">
+                <div class="col-md-12" style="padding:0; height: 230px;">
+                  <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
+                    <div class="green-box">
+                      <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
+                    </div>
+                    <div class="blue-box">
+                      <p
+                          class="text-center text-white" style="font-size: 12px;"
+                        >{{ segmento.horarios[0].dia }} de {{ segmento.horarios[0].fecha_inicio }} - {{ segmento.horarios[0].fecha_fin }}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-               
-            </slide>
-            
-        </carousel>
+              </slide>
+            </carousel>
           </div>
         </div>
       </section>
 
       <section class="transmissions">
-        <div class="container">
+        <div class="container" style="overflow:hidden">
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Transmisiones</h1>
-              <p class="text-center"></p>
+              <p class="text-center" style="margin-top: 2rem;">Lorem ipsum Lorem ipsum Lorem ipsum</p>
             </div>
           </div>
 
           <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
             <slide v-for="(transmision, index) in transmisiones" :key="index">
-              <div class="col-md-12">
-              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
-                <div class="green-box">
-                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+              <div class="col-md-12 sli-p" style="padding:0">
+                <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="img-fluid bg-image">
+                  <div class="green-box">
+                    <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+                  </div>
+                  <div class="blue-box">
+                    <p class="text-center text-white" style="font-size: 12px;">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                  </div>
                 </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      </section>
+
+      <section class="follow-us">
+        <div class="cover">
+          <div class="container">
+            <div class="row">
+            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
+              <h1 class="text-center text-white">SÍGUENOS</h1>
+            </div>
+                <div class="col-md-2 offset-md-3">
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
+                </div>
+                <div class="col-md-2">
+                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
+                </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="social">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">Redes Sociales</h1>
+            </div>
+            <div class="col-12">
+              <p class="text-center"></p>
+            </div>
+
+            <div class="col-md-4">
+              <img src="@/assets/img/redes1.png" class="full-image" alt />
+            </div>
+            <div class="col-md-4">
+              <img src="@/assets/img/redes2.png" class="full-image" alt />
+            </div>
+            <div class="col-md-4">
+              <img src="@/assets/img/redes3.png" class="full-image" alt />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+      </template>
+<template>
+      <div id="ohconde">
+      <section class="hero">
+        <div class="cover"></div>
+      </section>
+
+      <section class="schedule">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <!--<img
+                src="@/assets/img/2-1400x445.png"
+                class="full-image"
+                alt
+                style="margin-top: -20%; z-index: 99;"
+              />-->
+              <iframe style="width: 100%; height: 600px; margin-top: -37%;" src="https://www.youtube.com/embed/r-qCzkqEMUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="your-class h-100">
+                <div v-for="(video, index) in videos" :key="index">
+                  <div class="row align-items-center item-schedule">
+                    <div class="col-4 offset-2">
+                      <!--<img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />-->
+                      <img :src="video.snippet.thumbnails.high.url" alt  class="full-image"/>
+                    </div>
+                    <div class="col-4 offset-2">
+                      <h5
+                        class="text-center text-white"
+                      >{{ video.snippet.title }}</h5>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-               
-            </slide>
-            
-        </carousel>
+          </div>
         </div>
       </section>
 
@@ -310,6 +361,34 @@
         </div>
       </section>
 
+      <section class="transmissions">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">Transmisiones</h1>
+              <p class="text-center"></p>
+            </div>
+          </div>
+
+          <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+            <slide v-for="(transmision, index) in transmisiones" :key="index">
+              <div class="col-md-12 sli-c" style="padding:0">
+              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
+                <div class="green-box" style="padding: 10px;">
+                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+                </div>
+                <div class="blue-box">
+                  <p class="text-center text-white" style="font-size: 12px;">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                </div>
+              </div>
+            </div>
+               
+            </slide>
+            
+        </carousel>
+        </div>
+      </section>
+
       <section class="social">
         <div class="container">
           <div class="row">
@@ -317,25 +396,26 @@
               <h1 class="text-center">Redes Sociales</h1>
             </div>
             <div class="col-12">
-              <p class="text-center"></p>
+              <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
             </div>
 
             <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
+              <img src="@/assets/img/redes1.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
+              <img src="@/assets/img/redes2.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
+              <img src="@/assets/img/redes3.png" class="full-image" alt />
             </div>
           </div>
         </div>
       </section>
-
+    </div>
+    </template>
       <section class="conductores">
 
-        <div class="container">
+        <div class="container" style="overflow:hidden">
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">NUESTROS CONDUCTORES</h1>
@@ -344,140 +424,47 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <div class="conductores-carousel h-100">
-            <div class="background-image background-1">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
+                 <div class="conductores-carousel h-100 no-movil" v-if="conductores.length > 0">
+                    
+                    <slick :options="option_radio">
+                     <div v-for="conductor in conductores" :key="conductor.id">
+                      <div   v-if="conductor.imagen != null" class="background-conductores"  :style="{ 'background-image': 'url(' + conductor.imagen + ')' }">
+                        <div class="cover-conductores">
+                          <div class="container-fluid" style="height: 100%;">
+                            <div class="row align-items-center" style="height: 100%;">
+                              <div class="col-12">
+                                <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                    
+                  </slick>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-2">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
+
+                  <div class="conductores-carousel h-100 movil" v-if="conductores.length > 0">
+
+                   <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
+                      <slide v-for="conductor in conductores" :key="conductor.id">
+                        <div   v-if="conductor.imagen != null" class="background-conductores"  :style="{ 'background-image': 'url(' + conductor.imagen + ')' }">
+                        <div class="cover-conductores">
+                          <div class="container-fluid" style="height: 100%;">
+                            <div class="row align-items-center" style="height: 100%;">
+                              <div class="col-12">
+                                <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </slide>
+                      
+                  </carousel>
+                    
+                    
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-3">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-4">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-5">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-6">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-1">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-2">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-3">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-4">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-5">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background-image background-6">
-              <div class="cover-conductores">
-                <div class="container-fluid" style="height: 100%;">
-                  <div class="row align-items-center" style="height: 100%;">
-                    <div class="col-12">
-                      <h3 class="text-center text-white">Lorem ipsum</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
             </div>
           </div>
         </div>
@@ -492,25 +479,14 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-              <div class="galeria-carousel h-100">
-                <div class="background-image background-1">
-                </div>
-                <div class="background-image background-2">
-
-                </div>
-                <div class="background-image background-3">
-
-                </div>
-                <div class="background-image background-4">
-
-                </div>
-                <div class="background-image background-5">
-
-                </div>
-                <div class="background-image background-6">
-
-                </div>
+            <div class="col-md-12">
+              <div class="galeria-carousel h-100"  v-if="galerias.length > 0">
+                <slick :options="option_galeria">
+                  <div class="col-md-12" v-for="galeria in galerias" :key="galeria.id">
+                    <div class="background-image img-fluid" :style="{ 'background-image': 'url(' + galeria.imagen + ')' }">
+                    </div>
+                  </div>
+                </slick>
             </div>
             </div>
           </div>
@@ -524,65 +500,39 @@
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <div class="encuestas-carousel" style="margin-top: 3rem; margin-bottom: 2rem;">
-                  
-                  <div>
-                    <h3 class="text-center pregunta">¿Quien ganará la final de la Copa Liberadores?</h3>
-                    
-                    <div class="container" style="margin-top: 2rem;">
-                      <div class="row">
-                        <div class="col-md-4 offset-md-4" >
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label respuesta" for="exampleRadios1">
-                              Default radio
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                              Second default radio
-                            </label>
+
+                <div class="encuestas-carousel movil" v-if="encuestas.length > 0" style="margin-top: 3rem; margin-bottom: 2rem;">
+
+                  <carousel :autoplay="true" :perPage="1" :paginationEnabled="false" :navigationEnabled="false" navigationNextLabel="▶" navigationPrevLabel="◀">
+                      <slide v-for="encuesta in encuestas" :key="encuesta.id">
+                        <h3 class="text-center">{{ encuesta.titulo }}</h3>
+                      
+                      <div class="container" style="margin-top: 2rem;">
+                        <div class="row">
+                          <div class="col-md-4 offset-md-4" >
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                              <label class="form-check-label" for="exampleRadios1">
+                                Default radio
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                              <label class="form-check-label" for="exampleRadios2">
+                                Second default radio
+                              </label>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="offset-md-8 col-md-6">
-                        <button class="btn btn-danger" style="margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;">
-                          Votar
-                        </button>
-                      </div>
-                    </div>
-                    
-                  </div>
-
-                  <div>
-                    <h3 class="text-center">¿Quien ganará la final de la Copa Liberadores 2?</h3>
-                    <div class="container" style="margin-top: 2rem;">
-                      <div class="row">
-                        <div class="col-md-4 offset-md-4" >
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                              Default radio
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                              Second default radio
-                            </label>
-                          </div>
+                        <div class="offset-md-8 col-md-6">
+                          <button class="btn btn-danger" style="margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;">
+                            Votar
+                          </button>
                         </div>
                       </div>
-                      <div class="offset-md-8 col-md-6">
-                        <button class="btn btn-danger btn-votar">
-                          Votar
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  
-
+                      </slide>
+                      
+                  </carousel>
                 </div>
               </div>
             </div>
@@ -597,216 +547,12 @@
           <div class="row">
             <div class="col-12">
               <h1 class="text-center">Grabaciones</h1>
-              <p class="text-center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p class="text-center"></p>
             </div>
-            <div class="col-8 offset-2">
+            <div class="d-flex justify-content-center">
               <div id="grabaciones-list">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4 class="titulo">Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0" class="subitutlo">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0" class="subitutlo">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0" class="subtitulo">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0" class="subtitulo">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="@/assets/img/play_grabaciones.png" alt="" style="width: 100%;">
-                        </div>
-                        <div class="col-8">
-                          <h4>Escandalo</h4>
-                          <div class="progress" style="height: 2px; margin-bottom: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p style="float: left; margin-top: 5px; margin-bottom: 0">06/10/2019</p>
-                          <p style="float: right; margin-bottom: 0">00:03:15</p>
-                        </div>
-                        <div class="col-2" style="padding-top: 2rem;">
-                          <a href="#"><i class="fa fa-download"></i></a>
-                          <a href="#" style="margin-left: 10px;"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div v-for="(podcast, index) in podcasts" :key="index">
+                  <audio-player :file="podcast.audio" :nombre="podcast.nombre" :descripcion="podcast.descripcion"></audio-player>
                 </div>
               </div>
             </div>
@@ -894,11 +640,15 @@
           <div class="row align-items-center">
             <hr class="right-line">
             <div class="col-md-6">
-              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
-              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico">
-              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Teléfono">
-              <textarea class="form-control custom-form" placeholder="Mensaje" rows="10"></textarea>
-              <button class="btn btn-primary btn-enviar" style="float: right;">
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre" v-model="contact.nombre">
+              <div class="text-danger" v-if="errors && errors.nombre" >{{ errors.nombre[0] }}</div>
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico" v-model="contact.correo">
+              <div class="text-danger" v-if="errors && errors.correo" >{{ errors.correo[0] }}</div>
+              <input type="text" class="form-control custom-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Teléfono" v-model="contact.telefono">
+              <div class="text-danger" v-if="errors && errors.telefono" >{{ errors.telefono[0] }}</div>
+              <textarea class="form-control custom-form" placeholder="Mensaje" rows="10" v-model="contact.mensaje"></textarea>
+              <div class="text-danger" v-if="errors && errors.mensaje" >{{ errors.mensaje[0] }}</div>
+              <button class="btn btn-primary btn-enviar" style="float: right;" @click="contactanos(contact)">
                 ENVIAR
               </button>
 
@@ -979,123 +729,9 @@
 
       
 
-    </div>
-    </template>
+    
 
-    <template v-if="langing_oh_conde">
-      <div id="ohconde">
-      <section class="hero">
-        <div class="cover"></div>
-      </section>
-
-      <section class="schedule">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12">
-              <!--<img
-                src="@/assets/img/2-1400x445.png"
-                class="full-image"
-                alt
-                style="margin-top: -20%; z-index: 99;"
-              />-->
-              <iframe style="width: 100%; height: 600px; margin-top: -37%;" src="https://www.youtube.com/embed/r-qCzkqEMUM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="your-class h-100">
-                <div v-for="(video, index) in videos" :key="index">
-                  <div class="row align-items-center item-schedule">
-                    <div class="col-4 offset-2">
-                      <!--<img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />-->
-                      <img :src="video.snippet.thumbnails.high.url" alt  class="full-image"/>
-                    </div>
-                    <div class="col-4 offset-2">
-                      <h5
-                        class="text-center text-white"
-                      >{{ video.snippet.title }}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="follow-us">
-        <div class="cover">
-          <div class="container">
-            <div class="row">
-            <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
-              <h1 class="text-center text-white">SÍGUENOS</h1>
-            </div>
-                <div class="col-md-2 offset-md-3">
-                  <h2 class="text-center text-green"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-md-2">
-                  <h2 class="text-center text-green"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="transmissions">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="text-center">Transmisiones</h1>
-              <p class="text-center"></p>
-            </div>
-          </div>
-
-          <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(transmision, index) in transmisiones" :key="index">
-              <div class="col-md-12">
-              <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
-                <div class="green-box">
-                  <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
-                </div>
-                <div class="blue-box">
-                  <p class="text-center text-white">{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
-                </div>
-              </div>
-            </div>
-               
-            </slide>
-            
-        </carousel>
-        </div>
-      </section>
-
-      <section class="social">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="text-center">Redes Sociales</h1>
-            </div>
-            <div class="col-12">
-              <p class="text-center">Lorem ipsum lorem ipsum lorem ipsum</p>
-            </div>
-
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
-            </div>
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
-            </div>
-            <div class="col-md-4">
-              <img src="@/assets/img/image_3.png" class="full-image" alt />
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    </template>
+    
   </div>
 </template>
 
@@ -1105,23 +741,51 @@ import { mapActions, mapState, mapGetters } from "vuex";
 import api from "../api/session";
 import axios from 'axios'
 import { Carousel, Slide } from "vue-carousel";
+import Slick from 'vue-slick';
 import Navbar from '@/components/Navbar';
+import AudioPlayer from '@/components/AudioPlayer'
+import PlayerRadio from '@/components/PlayerRadio'
 const diblu = require('@/assets/img/diblu1.png')
 const RC = require('@/assets/img/logo_grupocaravana.png')
 const ohconde = require('@/assets/img/ohconde2.png')
+const flecha_conductores = require('@/assets/img/flecha_der_conductores.png')
+ const flecha_galeria = require('@/assets/img/flecha_der_galeria.png')
 export default {
   name: "home",
   components: {
     carousel: Carousel,
     slide: Slide,
-    Navbar
+    Navbar,
+    Slick,
+    AudioPlayer,
+    PlayerRadio
   },
   data() {
     return {
-      slickOptions: {
-                slidesToShow: 6,
-                // Any other options that can be got from plugin documentation
-            },
+      option_radio: {
+        slidesToShow: 3, 
+        rows: 2,
+        prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_conductores+"'>",
+        nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_conductores+"'>"
+      },
+      errors: '',
+      contact: {
+        nombre: "",
+        correo: "",
+        telefono: "",
+        mensaje: ""
+      },
+      flecha_conductores: flecha_conductores,
+      option_encuesta:{
+        arrows:false,
+            dots:true
+      },
+      option_galeria: {
+        rows:2,
+            slidesToShow: 2,
+            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_galeria+"'>",
+            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_galeria+"'>"
+      },
             logo_emisora: '',
              videos: [],
       reformattedSearchString: '',
@@ -1149,28 +813,41 @@ export default {
           file: new Audio('http://www.makrodigital.com:8006/radiocaravana'),
           isPlaying: false
       },
+      
+      isPlayingPodCasts: false,
       segmentos: [],
       equipos: [],
+      conductores: [],
+      encuestas: [],
       transmisiones: [],
-      landing_caravana: false,
+      podcasts: [],
+      galerias: [],
+      landing_caravana: true,
       landing_diblu: true,
-      langing_oh_conde: false,
+      langing_oh_conde: true,
       emisora_id: null,
       type: 'caravana',
+      inputs: {
+        username: "consulta",
+        password: "consulta"
+      }
     };
   },
-  mounted() {
+  created() {
+    const token = localStorage.getItem('TOKEN_STORAGE_KEY');
+   // !token ? this.login(this.inputs) : ''
+    this.getConductores()
     this.getEmisoraSegmentosToday(13, this.type);
     this.getAllEquipos()
     this.search()
-    $(document).scroll(function() {
-      if($(document).scrollTop() > 10){
-        $("#navbar nav").addClass('darknav')
-      }else{
-        $("#navbar nav").removeClass('darknav')
-      }
-   })
+    this.getEncuestas()
+    this.getPodCast()
+    this.getGaleria()
   },
+  mounted() {
+    
+  },
+  
   computed: mapGetters('auth', [
     'isAuthenticated',
   ]),
@@ -1182,6 +859,11 @@ export default {
       
       this.getData(apiUrl);
     },
+    login({ username, password }) {
+      this.$store
+        .dispatch("auth/login", { username, password })
+        .then(() => this.$router.push("/"));
+    },
     getData(apiUrl) {
       axios
         .get(apiUrl)
@@ -1192,20 +874,16 @@ export default {
         })
         .catch(error => console.log(error));
     },
-    next() {
-            this.$refs.slick.next();
-        },
-
-        prev() {
-            this.$refs.slick.prev();
-        },
-
-        reInit() {
-            // Helpful if you have to deal with v-for to update dynamic lists
-            this.$nextTick(() => {
-                this.$refs.slick.reSlick();
-            });
-        },
+     next() {
+                    this.$refs.slick.next()
+            },
+            prev() {
+                    this.$refs.slick.prev()
+            },
+            reInit() {
+                    // Helpful if you have to deal with v-for to update dynamic lists
+                    this.$refs.slick.reSlick()
+            },
     getEmisoraSegmentosToday(id, type) {
       const url = `/emisoras/${id}/segmentos/today?format=json`;
       this.emisora_id = id;
@@ -1222,34 +900,6 @@ export default {
         this.landing_caravana = true
         this.landing_diblu = false
         this.langing_oh_conde = false
-
-        const flecha_conductores = require('@/assets/img/flecha_der_conductores.png')
-        const flecha_galeria = require('@/assets/img/flecha_der_galeria.png')
-
-        $(document).ready(function(){
-          $(".conductores-carousel").slick({
-            rows:2,
-            slidesToShow: 3,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_conductores+"'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_conductores+"'>"
-          })
-        })
-
-        $(document).ready(function(){
-          $(".galeria-carousel").slick({
-            rows:2,
-            slidesToShow: 2,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_galeria+"'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_galeria+"'>"
-          })
-        })
-
-        $(document).ready(function(){
-          $(".encuestas-carousel").slick({
-            arrows:false,
-            dots:true
-          })
-        })
 
       }
       if(type == 'oh_conde') {
@@ -1275,7 +925,7 @@ export default {
         .then(res => {
           this.segmentos = res.data;
             const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
-          api.get(url_transmisiones)
+          api.get(url_transmisiones, { crossdomain: true })
             .then(res => {
               this.transmisiones = res.data;
             })
@@ -1283,13 +933,16 @@ export default {
               console.error(err);
             });
 
-
         })
         .catch(err => {
           console.error(err);
         });
     },
-
+    getListenPodCasts (audio) {
+      let listen = new Audio(audio)
+      this.isPlayingPodCasts = true;
+      listen.play();
+    },
     playSoundDiBlu () {
       this.audio_radiodiblu.isPlaying = true;
       this.audio_radiodiblu.file.play();
@@ -1312,10 +965,91 @@ export default {
 
     getAllEquipos () {
       const url = `/equipos?format=json`;
+      var config = {
+          headers: {'Access-Control-Allow-Origin': '*'}
+      };
       api
-        .get(url)
+        .get(url, { crossdomain: true })
         .then(res => {
           this.equipos = res.data;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
+    getEncuestas () {
+      const url = `/encuestas?format=json`;
+      var config = {
+          headers: {'Access-Control-Allow-Origin': '*'}
+      };
+      api
+        .get(url, { crossdomain: true })
+        .then(res => {
+          this.encuestas = res.data;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+    contactanos() {
+      const url = `/contactenos/?format=json`;
+      api
+        .post(url, this.contact, { crossdomain: true })
+        .then(res => {
+          this.$toastr.s("Mensaje enviado", "Gracias.. muy pronto te estaremos contactando"),
+          setTimeout(() => {
+           this.$router.push("/home")
+          }, 1000)
+        })
+        .catch(err => {
+          if (err.response.status === 400) {
+              this.errors = err.response.data || {};
+					}
+        });
+    },
+
+
+    getPodCast () {
+      const url = `/podcasts?format=json`;
+      var config = {
+          headers: {'Access-Control-Allow-Origin': '*'}
+      };
+      api
+        .get(url, { crossdomain: true })
+        .then(res => {
+          this.podcasts = res.data;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
+     getGaleria () {
+      const url = `/galeria?format=json`;
+      var config = {
+          headers: {'Access-Control-Allow-Origin': '*'}
+      };
+      api
+        .get(url, { crossdomain: true })
+        .then(res => {
+          this.galerias = res.data;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
+    getConductores () {
+      const url = `/locutores?format=json`;
+      api
+        .get(url, { crossdomain: true })
+        .then(res => {
+          this.conductores = res.data;
         })
         .catch(err => {
           console.error(err);
@@ -1338,7 +1072,10 @@ export default {
           }
         }
       }
-    }
+    },
+
+    
+
     
   },
 
@@ -1355,18 +1092,35 @@ export default {
   visibility: visible;
 }
 
-.conductores-carousel .background-image{
-  background-size: cover;
+.conductores-carousel .bg-image .cover-conductores{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    height: 300px;
     
 }
 
-.conductores-carousel .background-image:hover >.cover-conductores{
-  visibility: visible;
+.conductores-carousel .bg-image .background-conductores{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
 }
 
+.background-conductores {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    top: 0;
+    width: 100%;
+    height: 360px;
+}
 .conductores .slick-prev{
   transform: rotate(180deg);
   margin-top: -10px;
@@ -1380,11 +1134,12 @@ export default {
   width: 40px;
 }
 
-.galeria-carousel .background-image{
+.background-image{
   background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 300px;
+    position: unset !important;
     
 }
 .conductores-carousel .background-1{
@@ -1493,8 +1248,6 @@ export default {
   width: 100%;  
 }
 .logo-karavana{
-    margin-left: 2rem;
-    margin-right: 2rem;
     width: 380px;
 }
 
@@ -1741,6 +1494,24 @@ export default {
     margin-top: 14px;
 }
 
+.transmissions{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.transmissions .VueCarousel{
+  height: 230px;
+}
+
+.transmissions .bg-image{
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.transmissions .bg-image
+
 #grabaciones-list{
   widows: 100%;
   background-color: #f7f7f8;
@@ -1792,6 +1563,10 @@ export default {
     width: 100px;
     border-bottom: 4px #e10713 solid;
     margin-top: 14px;
+}
+
+.schedule .VueCarousel{
+  height: 230px;
 }
 
 .contactenos{
@@ -1849,24 +1624,573 @@ export default {
 
 }
 
-.encuesta .pregunta{
-  color: #211915;
+.footer-main {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.cover-main {
+    background-color: rgba(11, 9, 26, 0.8);
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+#hero{
+    height: 100vh;
+    background-image: url('~@/assets/img/4811.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }
 
-.encuesta .respuesta{
-  color: #444242;
+.navbar{
+    background-color: transparent !important;
+    padding: 2.5rem;
 }
 
-.grabaciones .titulo{
-  color: #444242;
+.navbar a{
+    color: #fff !important;
 }
 
-.grabaciones .subtitulo{
-  color: #727176;
+.navbar .nav-item{
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
-.darknav{
-  background-color: rgba(0, 0, 0, 0.7) !important;
+#hero .main-text{
+    color: #fff;
+}
+
+#hero .green-text{
+    color: #a5ce39;
+}
+#schedule .VueCarousel{
+  height: 230px;
+}
+
+#schedule .VueCarousel-slide{
+  height: 230px;
+}
+
+#schedule .bg-image{
+  height: 230px;
+}
+
+#schedule .green-box, #transmissions .green-box{
+    background-color: #a5ce39;
+    width: 70%;
+    padding: 10px;
+}
+
+#schedule .green-box h3, #transmissions .green-box h3{
+    margin: 0;
+}
+
+#schedule .blue-box, #transmissions .blue-box{
+    background-color: #005b90;
+    margin-left: 20px;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#schedule .blue-box p, #transmissions .blue-box p{
+    margin: 0;
+}
+
+#schedule .blue-box > h5{
+    color: #fff;
+}
+
+#schedule .bg-image{
+    width: 100%; 
+    padding-top: 60px; 
+    padding-bottom: 60px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#transmissions .bg-image{
+    width: 100%; 
+    padding-top: 100px; 
+    padding-bottom: 100px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#schedule .col-md-3{
+    padding: 0;
+}
+
+#schedule{
+  height: 230px;
+}
+
+#schedule .VueCarousel{
+  height: 230px;
+}
+
+#transmissions{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#transmissions h1{
+    margin-bottom: 2rem;
+}
+
+#transmissions h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+}
+
+.transmissions h1:after{
+  left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+}
+
+#transmissions .carousel{
+    margin-top: 2rem;
+}
+
+#follow-us{
+    height: 100vh;
+    background-image: url('~@/assets/img/siguenos.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+    
+}
+
+#social h1:after {
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #a5ce39 solid;
+    margin-top: 14px;
+}
+
+#social{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#social p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#sidebar{
+    position: fixed;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 35%;
+    right: 0;
+    z-index: 9999;
+}
+
+#sidebar li{
+    list-style: none;
+}
+
+#sidebar ul{
+    margin: 0;
+    padding: 5px;
+}
+
+#caravana .hero{
+    height: 100vh;
+    background-image: url('~@/assets/img/caravana-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#caravana .follow-us h1{
+    position: relative;
+}
+
+#caravana .follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+}
+
+#caravana .cover{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100vh;
+}
+
+#caravana .main-text{
+    color: #fff;
+}
+
+#caravana .red-text{
+    color: #e10713;
+}
+
+#caravana .schedule .VueCarousel{
+  height: 230px;
+}
+
+#caravana .schedule .VueCarousel-slide{
+  height: 230px;
+}
+
+#caravana .schedule .green-box, .transmissions .green-box{
+    background-color: #e10713;
+    width: 70%;
+    padding: 10px;
+}
+
+#caravana .schedule .green-box h3, .transmissions .green-box h3{
+    margin: 0;
+}
+
+#caravana .schedule .blue-box, #caravana .transmissions .blue-box{
+    background-color: #2c2469;
+    margin-left: 20px;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#caravana .schedule .blue-box p, #caravana .transmissions .blue-box p{
+    margin: 0;
+}
+
+#caravana .schedule .blue-box > h5{
+    color: #fff;
+}
+
+
+#caravana .schedule .col-md-3{
+    padding: 0;
+}
+
+#caravana .transmissions{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#caravana .transmissions h1{
+    margin-bottom: 2rem;
+}
+
+#caravana .transmissions h1:after {
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+
+}
+
+#caravana .transmissions .carousel{
+    margin-top: 2rem;
+}
+
+#caravana .follow-us i{
+    color: #e10713;
+}
+
+#caravana .follow-us{
+    height: 100vh;
+    background-image: url('~@/assets/img/siguenos.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#caravana .social{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#caravana .social h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #e10713 solid;
+    margin-top: 14px;
+
+}
+
+#caravana .social p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#ohconde .cover{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100vh;
+}
+
+#ohconde .hero{
+    height: 100vh;
+    background-image: url('~@/assets/img/ohconde-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#ohconde .hero .main-text{
+    color: #fff;
+}
+
+#ohconde .hero .green-text{
+    color: #a5ce39;
+}
+
+#ohconde .schedule{
+    background-color: #0b091a;
+}
+
+#ohconde .schedule .item-schedule{
+    padding: 20px;
+}
+
+#ohconde .transmissions .VueCarousel{
+  height: 230px;
+}
+
+#ohconde .transmissions .VueCarousel-slide{
+  height: 230px;
+}
+
+
+#ohconde .transmissions .bg-image{
+    padding-top: 60px; 
+    padding-bottom: 60px; 
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 230px;
+}
+
+#ohconde .social h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+
+}
+
+#ohconde .follow-us h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+    
+}
+
+#ohconde .transmissions h1:after {
+
+    left: 50%;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    height: 1em;
+    width: 100px;
+    border-bottom: 4px #f7b21a solid;
+    margin-top: 14px;
+}
+
+
+#ohconde .transmissions{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#ohconde .schedule .green-box, #ohconde .transmissions .green-box{
+    background-color: #f7b21a;
+    width: 70%;
+    padding: 20px;
+}
+
+#ohconde .schedule .green-box h3, #ohconde .transmissions .green-box h3{
+    margin: 0;
+}
+
+#ohconde .schedule .blue-box, #ohconde .transmissions .blue-box{
+    background-color: #444242;
+    margin-left: 20px;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#ohconde .schedule .blue-box p, #ohconde .transmissions .blue-box p{
+    margin: 0;
+}
+
+
+#ohconde .transmissions .carousel{
+    margin-top: 2rem;
+}
+
+#ohconde .follow-us{
+    height: 100vh;
+    background-image: url('~@/assets/img/siguenos.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#ohconde .social{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#ohconde .follow-us i{
+    color: #f7b21a;
+}
+
+#ohconde .social p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#caravana .schedule .bg-image{
+    padding-top: 60px;
+    padding-bottom: 60px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 230px;
+}
+
+#caravana .transmissions .bg-image{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+@media (max-width:360px) { 
+  .logo-karavana{
+      width: 340px !important;
+  }
+
+  .btn-images {
+    width: 45px !important;
+  }
+
+
+  .VueCarousel-navigation-prev {
+    width: 80px !important;
+    background-size: 30px !important;
+  }
+
+  .VueCarousel-navigation-next {
+    width: 80px !important;
+    background-size: 30px !important;
+    margin-right: 114px !important;
+  }
+  .VueCarousel-slide .sli-p{
+    width: 100% !important;
+  }
+  .right-line {
+    display: none
+  }
+  #grabaciones-list {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+   }
+  .galeria .slick-slide {
+
+    margin: 0px !important;
+    width: 100% !important;
+
+}
+.slick-track {
+
+     width: 100% !important;
+
+}
+  .movil{
+    display: block !important;
+  }
+  .no-movil {
+    display: none !important;
+  }
 }
 
 </style>
