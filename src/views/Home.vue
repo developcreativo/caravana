@@ -206,7 +206,7 @@
           <div class="row">
             <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
               <slide v-for="(segmento, index) in segmentos_caravana" :key="index">
-                <div class="col-md-12" style="padding:0; height: 230px;">
+                <div class="col-md-12" style="padding:0; height: 230px; width: 230px;">
                   <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
                     <div class="green-box">
                       <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
@@ -426,10 +426,9 @@
                     
                     <slick :options="option_radio">
                      <div v-for="conductor in conductores" :key="conductor.id">
-                      <div   v-if="conductor.imagen != null" class="background-conductores"  :style="{ 'background-image': 'url(' + conductor.imagen + ')' }">
                         <div class="cover-conductores">
                           <div class="container-fluid" style="height: 100%;">
-                            <div class="row align-items-center" style="height: 100%;">
+                            <div class="row align-items-center" style="height: 100% ;">
                               <div class="col-12">
                                 <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
                               </div>
@@ -437,7 +436,7 @@
                           </div>
                         </div>
                       </div>
-                     </div>
+                     
                     
                   </slick>
                   </div>
