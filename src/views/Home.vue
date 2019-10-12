@@ -37,7 +37,7 @@
       <div class="cover-main">
         <div class="container">
           
-          <div class="row align-items-center full-height">
+          <div class="row align-items-center full-height row-images">
 
            
             <div class="mx-auto text-center">
@@ -155,13 +155,13 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-md-2 offset-md-3">
+                <div class="col-2 offset-3">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
@@ -257,13 +257,13 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-md-2 offset-md-3">
+                <div class="col-2 offset-3">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
@@ -345,13 +345,13 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-md-2 offset-md-3">
+                <div class="col-2 offset-3">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                   <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
                 </div>
           </div>
@@ -1133,6 +1133,18 @@ export default {
 
     }
   },
+  created(){
+    
+    $(document).scroll(function() {
+        if($(document).scrollTop() > 10){
+          $("#navbar .navbar").addClass("dark-transparent-navbar")
+          console.log($(document).scrollTop())
+        }else{
+          $("#navbar .navbar").removeClass("dark-transparent-navbar")
+        }
+    })
+
+  }
 };
 
 </script>
@@ -1295,6 +1307,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;  
+  background-position: center center;
 }
 .logo-karavana{
     width: 380px;
@@ -1693,11 +1706,11 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 .navbar{
     background-color: transparent !important;
-    padding: 2.5rem;
 }
 
 .navbar a{
@@ -1830,6 +1843,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 #follow-us h1:after {
@@ -1892,6 +1906,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 #caravana .follow-us h1{
@@ -2002,6 +2017,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 #caravana .social{
@@ -2040,6 +2056,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 #ohconde .hero .main-text{
@@ -2158,6 +2175,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    background-position: center center;
 }
 
 #ohconde .social{
@@ -2189,6 +2207,38 @@ export default {
     background-position: center;
     padding-top: 60px;
     padding-bottom: 60px;
+}
+
+.dark-transparent-navbar{
+  background-color: rgba(0,0,0,0.7) !important;
+  padding: 1.5rem;
+}
+
+@media (max-width: 991px){
+  .footer-main{
+    display: none;
+  }
+}
+
+@media (max-width: 767px){
+
+  #home .btn-images{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .right-line{
+    display: none;
+  }
+
+}
+
+@media (max-width: 595px){
+
+  #home .btn-images{
+    width: 80px;
+  }
+
 }
 
 

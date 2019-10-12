@@ -7,7 +7,7 @@
           <img :src="logo" alt="" class="logo img-fluid" style="width: 60px;">
       </router-link>
       
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-bottom: 110px;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">CONDUCTORES</a>
