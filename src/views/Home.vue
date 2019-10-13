@@ -1027,7 +1027,6 @@ export default {
         });
     },
 
-
     getEncuestas () {
       const url = `/encuestas?format=json`;
       var config = {
@@ -1143,6 +1142,7 @@ export default {
           $("#navbar .navbar").removeClass("dark-transparent-navbar")
         }
     })
+    
 
   }
 };
@@ -2212,6 +2212,23 @@ export default {
 .dark-transparent-navbar{
   background-color: rgba(0,0,0,0.7) !important;
   padding: 1.5rem;
+}
+
+.mobile-only{
+  display: none;
+}
+
+#sidebar .list-group-item{
+  background-color: unset;
+  color: #fff;
+}
+
+@media (max-width: 991px){
+  .mobile-only{
+    display: block;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
 }
 
 @media (max-width: 991px){

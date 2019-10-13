@@ -43,6 +43,23 @@
         </ul>
       </div>
     </nav>
+
+    <nav class="navbar navbar-light bg-light fixed-top mobile-only">
+      <i class="fa fa-bars" style="float: right; color: #fff; font-size: 30px; margin-top: 10px; margin-right: 10px; cursor: pointer;" onclick="toggleSidebar()">
+
+      </i>
+    </nav>
+    
+    <div id="sidebar" style="width: 200px; position: fixed; top: 0; height: 100%; background-color: red; left: 0; padding-top: 70px; z-index: 1;background-color: #0b091a;">
+      <ul class="list-group" style="padding: 0px;">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
