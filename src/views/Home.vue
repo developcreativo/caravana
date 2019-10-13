@@ -1928,7 +1928,9 @@ export default {
     border-bottom: 4px #e10713 solid;
     margin-top: 14px;
 }
-
+.cover {
+    position: static !important;
+}
 #caravana .cover{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
