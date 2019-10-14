@@ -6,7 +6,7 @@
         <li>
           <img
             @click="getSegmentosDiblu(13)"
-            src="@/assets/img/boton_diblu.png"
+            src="@/assets/webAdminRadio/img/boton_diblu.png"
             class="full-image"
             alt
           />
@@ -14,7 +14,7 @@
         <li>
           <img
             @click="getSegmentosCaravana(14, 'caravana')"
-            src="@/assets/img/boton_RC.png"
+            src="@/assets/webAdminRadio/img/boton_RC.png"
             class="full-image"
             alt
           />
@@ -22,7 +22,7 @@
         <li>
           <img
             @click="getEmisoraSegmentosToday(16, 'oh_conde')"
-            src="@/assets/img/boton_ohconde.png"
+            src="@/assets/webAdminRadio/img/boton_ohconde.png"
             class="full-image"
             alt
           />
@@ -40,14 +40,14 @@
             <div class="mx-auto text-center">
              
             <div class="text-center main-text mb-4 logo-karavana ml-2 mr-2">
-              <img  class="img-fluid bg-cover rounded-0 w-100" src="@/assets/img/letras_grupocaravana.png" alt="">
+              <img  class="img-fluid bg-cover rounded-0 w-100" src="@/assets/webAdminRadio/img/letras_grupocaravana.png" alt="">
             </div>
-              <a href="#hero" @click="getSegmentosDiblu(13)"><img class="btn-images" src="@/assets/img/boton_diblu.png" alt /></a>
+              <a href="#hero" @click="getSegmentosDiblu(13)"><img class="btn-images" src="@/assets/webAdminRadio/img/boton_diblu.png" alt /></a>
               <a href="#caravana" @click="getSegmentosCaravana(16)">
-                <img class="btn-images" src="@/assets/img/boton_RC.png" alt />
+                <img class="btn-images" src="@/assets/webAdminRadio/img/boton_RC.png" alt />
               </a>
               <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
-                <img class="btn-images img-fluid" src="@/assets/img/boton_ohconde.png" alt />
+                <img class="btn-images img-fluid" src="@/assets/webAdminRadio/img/boton_ohconde.png" alt />
               </a>
             </div>
           </div>
@@ -60,7 +60,7 @@
                           <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
-                                        <img src="@/assets/img/codigo_etica.png" alt="">
+                                        <img src="@/assets/webAdminRadio/img/codigo_etica.png" alt="">
                                     </p>
                                     <p class="text-center footer-link-text" href="">Código de ética</p>
                                 </a>
@@ -70,7 +70,7 @@
                             <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
-                                        <img class="text-center" src="@/assets/img/comparticion_de_infraestructura.png" alt="">
+                                        <img class="text-center" src="@/assets/webAdminRadio/img/comparticion_de_infraestructura.png" alt="">
                                     </p>
                                     <p class="text-center footer-link-text" href="">Compartición de la infraestructura</p>
                                 </a>
@@ -80,7 +80,7 @@
                             <div class="footer-link">
                                 <a href="#">
                                     <p class="text-center">
-                                        <img class="text-center" src="@/assets/img/rendicion_de_cuentas.png" alt="">
+                                        <img class="text-center" src="@/assets/webAdminRadio/img/rendicion_de_cuentas.png" alt="">
                                     </p>
                                     <p href="" class="text-center footer-link-text">Rendición de cuentas</p>
                                 </a>
@@ -177,13 +177,13 @@
           </div>
 
           <div class="col-md-4">
-            <img src="@/assets/img/redes1.png" class="full-image" alt />
+            <img src="@/assets/webAdminRadio/img/redes1.png" class="full-image" alt />
           </div>
           <div class="col-md-4">
-            <img src="@/assets/img/redes2.png" class="full-image" alt />
+            <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
           </div>
           <div class="col-md-4">
-            <img src="@/assets/img/redes3.png" class="full-image" alt />
+            <img src="@/assets/webAdminRadio/img/redes3.png" class="full-image" alt />
           </div>
         </div>
       </div>
@@ -279,13 +279,13 @@
             </div>
 
             <div class="col-md-4">
-              <img src="@/assets/img/redes1.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes1.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/redes2.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/redes3.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes3.png" class="full-image" alt />
             </div>
           </div>
         </div>
@@ -395,13 +395,13 @@
             </div>
 
             <div class="col-md-4">
-              <img src="@/assets/img/redes1.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes1.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/redes2.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
             </div>
             <div class="col-md-4">
-              <img src="@/assets/img/redes3.png" class="full-image" alt />
+              <img src="@/assets/webAdminRadio/img/redes3.png" class="full-image" alt />
             </div>
           </div>
         </div>
@@ -476,7 +476,7 @@
               <div class="galeria-carousel h-100"  v-if="galerias.length > 0">
                 <slick :options="option_galeria">
                   <div class="col-md-12" v-for="galeria in galerias" :key="galeria.id">
-                    <div class="background-image img-fluid" :style="{ 'background-image': 'url(' + galeria.imagen + ')' }">
+                    <div class="background-image img-fluid vh-100" :style="{'background-image': 'url('+galeria.imagen+')'}">
                     </div>
                   </div>
                 </slick>
@@ -564,7 +564,7 @@
           <div class="row">
             <div class="col-md-4">
               <p class="text-center">
-                <img src="@/assets/img/innovacion.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/innovacion.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">INNOVACIÓN</h2>
               <p class="text-center">
@@ -573,7 +573,7 @@
             </div>
             <div class="col-md-4">
               <p class="text-center" style="margin-top: 70px;">
-                <img src="@/assets/img/compromiso.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/compromiso.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">COMPROMISO</h2>
               <p class="text-center">
@@ -582,7 +582,7 @@
             </div>
             <div class="col-md-4">
               <p class="text-center">
-                <img src="@/assets/img/calidad.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/calidad.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">CALIDAD</h2>
               <p class="text-center">
@@ -593,7 +593,7 @@
           <div class="row" style="margin-top: 40px;">
             <div class="col-md-4">
               <p class="text-center">
-                <img src="@/assets/img/responsabilidad.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/responsabilidad.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">RESPONSABILIDAD</h2>
               <p class="text-center">
@@ -602,7 +602,7 @@
             </div>
             <div class="col-md-4">
               <p class="text-center">
-                <img src="@/assets/img/motivacion.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/motivacion.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">MOTIVACIÓN</h2>
               <p class="text-center">
@@ -611,7 +611,7 @@
             </div>
             <div class="col-md-4">
               <p class="text-center">
-                <img src="@/assets/img/proactividad.png" style="width:120px;" alt="">
+                <img src="@/assets/webAdminRadio/img/proactividad.png" style="width:120px;" alt="">
               </p>
               <h2 class="text-center">PROACTIVIDAD</h2>
               <p class="text-center">
@@ -690,7 +690,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="text-center">
-                        <img src="@/assets/img/grupocaravana4.png" alt="" style="width: 130px;">
+                        <img src="@/assets/webAdminRadio/img/grupocaravana4.png" alt="" style="width: 130px;">
                     </p>
                 </div>
                 <div class="col-12">
@@ -738,11 +738,11 @@ import Slick from 'vue-slick';
 import Navbar from '@/components/Navbar';
 import AudioPlayer from '@/components/AudioPlayer'
 import PlayerRadio from '@/components/PlayerRadio'
-const diblu = require('@/assets/img/diblu1.png')
-const RC = require('@/assets/img/logo_grupocaravana.png')
-const ohconde = require('@/assets/img/ohconde2.png')
-const flecha_conductores = require('@/assets/img/flecha_der_conductores.png')
- const flecha_galeria = require('@/assets/img/flecha_der_galeria.png')
+const diblu = require('@/assets/webAdminRadio/img/diblu1.png')
+const RC = require('@/assets/webAdminRadio/img/logo_grupocaravana.png')
+const ohconde = require('@/assets/webAdminRadio/img/ohconde2.png')
+const flecha_conductores = require('@/assets/webAdminRadio/img/flecha_der_conductores.png')
+ const flecha_galeria = require('@/assets/webAdminRadio/img/flecha_der_galeria.png')
 export default {
   name: "home",
   components: {
@@ -843,7 +843,14 @@ export default {
     this.getSegmentosDiblu(13)
     this.getSegmentosCaravana(14)
 
-   
+   $(document).scroll(function() {
+        if($(document).scrollTop() > 10){
+          $("#navbar .navbar").addClass("dark-transparent-navbar")
+          console.log($(document).scrollTop())
+        }else{
+          $("#navbar .navbar").removeClass("dark-transparent-navbar")
+        }
+    })
   },
   mounted() {
     
@@ -954,7 +961,7 @@ export default {
         this.landing_caravana = false
         this.landing_diblu = false
 
-        const flecha_diblu = require('@/assets/img/flecha_diblu.png')
+        const flecha_diblu = require('@/assets/webAdminRadio/img/flecha_diblu.png')
 
         $(document).ready(function(){
           $('.your-class').slick({
@@ -1167,7 +1174,6 @@ export default {
 }
 
 .background-conductores {
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -1197,31 +1203,31 @@ export default {
     
 }
 .conductores-carousel .background-1{
-  background-image: url('~@/assets/img/image_3.png')
+  background-image: url('~@/assets/webAdminRadio/img/image_3.png')
 }
 
 .conductores-carousel .background-2{
-  background-image: url('~@/assets/img/image_1.png')
+  background-image: url('~@/assets/webAdminRadio/img/image_1.png')
 }
 
 .conductores-carousel .background-3{
-  background-image: url('~@/assets/img/telefonos.png')
+  background-image: url('~@/assets/webAdminRadio/img/telefonos.png')
 }
 
 .conductores-carousel .background-4{
-  background-image: url('~@/assets/img/proactividad.png')
+  background-image: url('~@/assets/webAdminRadio/img/proactividad.png')
 }
 
 .conductores-carousel .background-5{
-  background-image: url('~@/assets/img/responsabilidad.png')
+  background-image: url('~@/assets/webAdminRadio/img/responsabilidad.png')
 }
 
 .conductores-carousel .background-6{
-  background-image: url('~@/assets/img/siguenos.png')
+  background-image: url('~@/assets/webAdminRadio/img/siguenos.png')
 }
 
 .conductores-carousel .background-1{
-  background-image: url('~@/assets/img/image_3.png')
+  background-image: url('~@/assets/webAdminRadio/img/image_3.png')
 }
 
 .conductores .slick-slide > div{
@@ -1229,27 +1235,27 @@ export default {
 }
 
 .galeria-carousel .background-1{
-  background-image: url('~@/assets/img/image_3.png')
+  background-image: url('~@/assets/webAdminRadio/img/image_3.png')
 }
 
 .galeria-carousel .background-2{
-  background-image: url('~@/assets/img/image_1.png')
+  background-image: url('~@/assets/webAdminRadio/img/image_1.png')
 }
 
 .galeria-carousel .background-3{
-  background-image: url('~@/assets/img/telefonos.png')
+  background-image: url('~@/assets/webAdminRadio/img/telefonos.png')
 }
 
 .galeria-carousel .background-4{
-  background-image: url('~@/assets/img/proactividad.png')
+  background-image: url('~@/assets/webAdminRadio/img/proactividad.png')
 }
 
 .galeria-carousel .background-5{
-  background-image: url('~@/assets/img/responsabilidad.png')
+  background-image: url('~@/assets/webAdminRadio/img/responsabilidad.png')
 }
 
 .galeria-carousel .background-6{
-  background-image: url('~@/assets/img/siguenos.png')
+  background-image: url('~@/assets/webAdminRadio/img/siguenos.png')
 }
 
 .galeria .slick-slide > div{
@@ -1270,7 +1276,7 @@ export default {
 }
 
 .VueCarousel-navigation-prev {
-    background-image: url('~@/assets/img/flecha_diblu.png');
+    background-image: url('~@/assets/webAdminRadio/img/flecha_diblu.png');
     background-size: cover;
     transform: rotate(180deg) !important;
     font-size: 0;
@@ -1283,7 +1289,7 @@ export default {
 }
 
 .VueCarousel-navigation-next {
-    background-image: url('~@/assets/img/flecha_diblu.png');
+    background-image: url('~@/assets/webAdminRadio/img/flecha_diblu.png');
     background-size: cover;
     font-size: 0;
     height: 236px;
@@ -1296,7 +1302,7 @@ export default {
 
 #home{
   height: 100vh;
-  background-image: url('~@/assets/img/539610.jpg');
+  background-image: url('~@/assets/webAdminRadio/img/539610.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;  
@@ -1417,7 +1423,7 @@ export default {
 
 .encuestas{
   margin-top: 6rem;
-  background-image: url('~@/assets/img/test.jpg');
+  background-image: url('~@/assets/webAdminRadio/img/test.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -1714,7 +1720,7 @@ export default {
 }
 #hero{
     height: 100vh;
-    background-image: url('~@/assets/img/4811.jpg');
+    background-image: url('~@/assets/webAdminRadio/img/4811.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -1851,7 +1857,7 @@ export default {
 
 #follow-us{
     height: 100vh;
-    background-image: url('~@/assets/img/siguenos.png');
+    background-image: url('~@/assets/webAdminRadio/img/siguenos.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -1914,7 +1920,7 @@ export default {
 
 #caravana .hero{
     height: 100vh;
-    background-image: url('~@/assets/img/caravana-hero.jpg');
+    background-image: url('~@/assets/webAdminRadio/img/caravana-hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -2027,7 +2033,7 @@ export default {
 
 #caravana .follow-us{
     height: 100vh;
-    background-image: url('~@/assets/img/siguenos.png');
+    background-image: url('~@/assets/webAdminRadio/img/siguenos.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -2066,7 +2072,7 @@ export default {
 
 #ohconde .hero{
     height: 100vh;
-    background-image: url('~@/assets/img/ohconde-hero.jpg');
+    background-image: url('~@/assets/webAdminRadio/img/ohconde-hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -2185,7 +2191,7 @@ export default {
 
 #ohconde .follow-us{
     height: 100vh;
-    background-image: url('~@/assets/img/siguenos.png');
+    background-image: url('~@/assets/webAdminRadio/img/siguenos.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
