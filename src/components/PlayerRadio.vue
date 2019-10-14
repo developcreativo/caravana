@@ -9,7 +9,7 @@
           </h1>
           <p class="text-center" v-if="type == 'caravana'" v-on:click.prevent="playing = !playing">
             <img
-              src="@/assets/img/play_RC.png"
+              src="@/assets/webAdminRadio/img/play_RC.png"
               alt
               style="width: 120px;"
               v-if="!playing"
@@ -17,7 +17,7 @@
 
              <img
                 v-else
-              src="@/assets/img/pause_radiocaravana.png"
+              src="@/assets/webAdminRadio/img/pause_radiocaravana.png"
               alt
               style="width: 120px;"
              
@@ -36,7 +36,7 @@
 
           <p class="text-center" v-if="type == 'diblu'" v-on:click.prevent="playing = !playing">
             <img
-              src="@/assets/img/play_diblu.png"
+              src="@/assets/webAdminRadio/img/play_diblu.png"
               alt
               style="width: 120px;"
               v-if="!playing"
@@ -44,7 +44,7 @@
 
              <img
                 v-else
-              src="@/assets/img/pause_diblu.png"
+              src="@/assets/webAdminRadio/img/pause_diblu.png"
               alt
               style="width: 120px;"
              

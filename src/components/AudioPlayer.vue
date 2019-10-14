@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-2">
               <img
-                src="@/assets/img/play_grabaciones.png"
+                src="@/assets/webAdminRadio/img/play_grabaciones.png"
                 alt
                 style="width: 100%;"
                 v-on:click.prevent="playing = !playing"

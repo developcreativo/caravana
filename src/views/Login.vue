@@ -1,14 +1,15 @@
 <template>
   <div id="login-view">
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        
-        <router-link class="navbar-brand" to="/home">
-           <img class="d-none d-sm-none d-md-block" src="~@/assets/img/logo_grupocaravana.png" alt style="width: 130px;" />
-        </router-link>
-        
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="collapse-navbar">
-          <ul class="navbar-nav ml-auto">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <router-link class="navbar-brand" to="/home">
+          <img src="~@/assets/webAdminRadio/img/logo_grupocaravana.png" alt style="width: 60px;" />
+      </router-link>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" v-on:click="toggleNavbar">
+      <i class="fa fa-bars" style="float: right; color: #fff; font-size: 30px; margin-top: 10px; margin-right: 10px; cursor: pointer;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">CONDUCTORES</a>
           </li>
@@ -41,16 +42,10 @@
                 INICIAR SESIÓN
           </router-link>
         </ul>
-        </div>
-      </nav>
-
-      <nav class="navbar navbar-light bg-light fixed-top mobile-only">
-       <router-link class="navbar-brand" to="/home">
-          <img src="~@/assets/img/logo_grupocaravana.png" alt style="width: 60px;" />
-      </router-link>
-      <i class="fa fa-bars" style="float: right; color: #fff; font-size: 30px; margin-top: 10px; margin-right: 10px; cursor: pointer;"  v-on:click="toggleNavbar"></i>
+      </div>
     </nav>
 
+    
     <div id="sidebar" style="width: 250px; position: fixed; top: 0; height: 100%; background-color: red; left: 0; padding-top: 70px; z-index: 1;background-color: #0b091a; display:none" v-bind:class="{ 'show': show }">
 
       <ul class="list-group" style="padding: 0px;">
@@ -82,7 +77,6 @@
         </li>
       </ul>
     </div>
-
     <div class="background-image">
       <div class="cover"></div>
 
@@ -95,7 +89,7 @@
               <form @submit.prevent="submit">
                 <div class="card-body">
                   <p class="text-center">
-                    <img src="~@/assets/img/logo_grupocaravana.png" style="width: 90px;" alt />
+                    <img src="~@/assets/webAdminRadio/img/logo_grupocaravana.png" style="width: 90px;" alt />
                   </p>
                   <div class="container" style="margin-top: 2rem;">
                     <div class="row">
@@ -165,7 +159,7 @@ export default {
 
 <style>
 .background-image{
-    background-image: url('~@/assets/img/539610.jpg');
+    background-image: url('~@/assets/webAdminRadio/img/539610.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -273,6 +267,9 @@ export default {
 }
 .show {
   display: block !important;
+}
+.bg-light {
+  background-color: rgba(0,0,0,0.7) !important;
 }
 @media (max-width: 991px){
   .mobile-only{
