@@ -367,7 +367,7 @@
           </div>
 
           <carousel :autoplay="true" :perPage="3" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
-            <slide v-for="(transmision, index) in transmisiones" :key="index">
+            <slide v-for="(transmision, index) in transmisiones_conde" :key="index">
               <div class="col-md-12 sli-c" style="padding:0">
               <div v-if="transmision.equipo1" :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }" class="bg-image">
                 <div class="green-box" style="padding: 10px;">
@@ -814,8 +814,10 @@ export default {
       segmentos: [],
       segmentos_caravana: [],
       segmentos_diblu: [],
+      segmentos_conde: [],
       transmisiones_diblu: [],
       transmisiones_caravana: [],
+      transmisiones_conde: [],
       equipos: [],
       conductores: [],
       encuestas: [],
@@ -844,8 +846,9 @@ export default {
     this.getPodCast()
     this.getGaleria()
     this.getSegmentosDiblu(13)
-    this.getSocialesDiblu(13)
+    this.getSegmentosConde(16)
     this.getSegmentosCaravana(14)
+    this.getSocialesDiblu(13)
     this.getSocialesCaravana(14)
     this.getSocialesOhConde(16)
    $(document).scroll(function() {
@@ -962,6 +965,29 @@ export default {
           api.get(url_transmisiones, { crossdomain: true })
             .then(res => {
               this.transmisiones_caravana = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
+
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
+
+
+    getSegmentosConde(id) {
+      const url = `/emisoras/${id}/segmentos/today?format=json`;
+      this.logo_emisora = RC
+       api
+        .get(url)
+        .then(res => {
+          this.segmentos_conde = res.data;
+            const url_transmisiones = `/emisora/${id}/transmisiones?format=json`;
+          api.get(url_transmisiones, { crossdomain: true })
+            .then(res => {
+              this.transmisiones_conde = res.data;
             })
             .catch(err => {
               console.error(err);
