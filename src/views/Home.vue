@@ -1129,6 +1129,15 @@ export default {
 
     }
   },
+  created(){
+    $(document).scroll(function() {
+      if($(document).scrollTop() > 10){
+        $("#navbar .navbar").addClass("dark-transparent-navbar")
+      }else{
+        $("#navbar .navbar").removeClass("dark-transparent-navbar")
+      }
+    })
+  }
 };
 
 </script>
@@ -2234,12 +2243,14 @@ export default {
     height: 70px;
     background-color: rgba(0, 0, 0, 0.7) !important;
   }
+
 }
 
 @media (max-width: 991px){
   .footer-main{
     display: none;
   }
+
 }
 
 @media (max-width: 767px){

@@ -55,28 +55,28 @@
 
       <ul class="list-group" style="padding: 0px;">
         <li class="list-group-item">
-          <a class="nav-link" href="#">CONDUCTORES</a>
+          <a class="nav-link text-white" href="#">CONDUCTORES</a>
         </li>
         <li class="list-group-item">
-          <a class="nav-link" href="#">ENCUESTAS</a>
+          <a class="nav-link text-white" href="#">ENCUESTAS</a>
         </li>
         <li class="list-group-item">
-          <a class="nav-link" href="#">GRABACIONES</a>
+          <a class="nav-link text-white" href="#">GRABACIONES</a>
         </li>
         <li class="list-group-item">
-          <a class="nav-link" href="#">QUIENES SOMOS</a>
+          <a class="nav-link text-white" href="#">QUIENES SOMOS</a>
         </li>
         <li class="list-group-item">
-          <a class="nav-link" href="#">CONTÁCTENOS</a>
+          <a class="nav-link text-white" href="#">CONTÁCTENOS</a>
         </li>
         <li class="list-group-item">
-          <router-link class="nav-link" to="/register">
+          <router-link class="nav-link text-white" to="/register">
               REGISTRO
             </router-link>
         </li>
 
         <li class="list-group-item">
-         <router-link class="nav-link login-btn" to="/login">
+         <router-link class="nav-link login-btn text-white" to="/login">
                 INICIAR SESIÓN
           </router-link>
         </li>
@@ -100,14 +100,41 @@ export default {
   },
  data() {
     return {
-      show: false
+      show: false,
+      open: false
     }
   },
 
   methods: {
     toggleNavbar () {
-      this.show = !this.show;
+      
+      if(this.open == false){
+        this.show=true
+        this.open = true
+        $("#sidebar").removeClass("slideOutLeft animated")
+        $("#sidebar").addClass("slideInLeft animated")
+      
+      }else{
+
+        this.open = false
+        $("#sidebar").removeClass("slideInLeft animated")
+        $("#sidebar").addClass("slideOutLeft animated")
+
+      }
+
+
     }
+  },
+  created(){
+
+    $(window).resize(function() { 
+      
+      if($( window ).width() >= 991){
+        this.show = false
+      }
+
+    }); 
+
   }
  
   
