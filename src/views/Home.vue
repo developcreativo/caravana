@@ -317,21 +317,30 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div class="your-class h-100">
-                <div v-for="(video, index) in videos" :key="index">
-                  <div class="row align-items-center item-schedule">
-                    <div class="col-4 offset-2">
-                      <!--<img :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="full-image" alt />-->
-                      <img :src="video.snippet.thumbnails.high.url" alt  class="full-image"/>
-                    </div>
-                    <div class="col-4 offset-2">
-                      <h5
-                        class="text-center text-white"
-                      >{{ video.snippet.title }}</h5>
+            <div class="col-md-12" style="padding: 4rem;">
+
+              <div class="ohconde-class">
+                <!--<slick :options="option_ohconde">-->
+                  <div v-for="(video, index) in videos" :key="index">
+                    <div class="row align-items-center item-schedule">
+                      <div class="col-4 offset-2">
+                        <img :src="video.snippet.thumbnails.high.url" alt  class="full-image"/>
+                      </div>
+                      <div class="col-4 offset-2">
+                        <h5
+                          class="text-center text-white"
+                        >{{ video.snippet.title }}</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <!--</slick>-->
+                <!--<slick :options="option_ohconde">
+                    <div v-for="(video, index) in videos" :key="index">
+                        
+                      <p>{{ video.snippet.thumbnails.high.url }}</p>
+                        
+                    </div>
+                </slick>-->
               </div>
             </div>
           </div>
@@ -428,7 +437,7 @@
                               <div class="container-fluid" style="height: 100%;">
                                 <div class="row align-items-center" style="height: 100% ;">
                                   <div class="col-12">
-                                    <h3 class="text-center text-white">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                                    <h3 class="text-center text-white conductores-title">{{ conductor.first_name }} {{ conductor.last_name }}</h3>
                                   </div>
                                 </div>
                               </div>
@@ -477,7 +486,7 @@
               <div class="galeria-carousel h-100"  v-if="galerias.length > 0">
                 <slick :options="option_galeria">
                   <div class="col-md-12" v-for="galeria in galerias" :key="galeria.id">
-                    <div class="background-image img-fluid vh-100" :style="{'background-image': 'url('+galeria.imagen+')'}">
+                    <div class="background-image img-fluid" :style="{'background-image': 'url('+galeria.imagen+')'}">
                     </div>
                   </div>
                 </slick>
@@ -720,11 +729,6 @@
             </div>
         </div>
     </section>
-
-      
-
-    
-
     
   </div>
 </template>
@@ -859,6 +863,7 @@ export default {
           $("#navbar .navbar").removeClass("dark-transparent-navbar")
         }
     })
+
   },
   mounted() {
     
@@ -993,6 +998,17 @@ export default {
               console.error(err);
             });
 
+            $(document).ready(function(){
+          const flecha_diblu = require('@/assets/webAdminRadio/img/flecha_diblu.png')
+      $('.ohconde-class').slick({
+        vertical: true, 
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_diblu+"'>",
+        nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_diblu+"'>"
+      });
+    });
+
         })
         .catch(err => {
           console.error(err);
@@ -1025,15 +1041,6 @@ export default {
         this.landing_diblu = false
 
         const flecha_diblu = require('@/assets/webAdminRadio/img/flecha_diblu.png')
-
-        $(document).ready(function(){
-          $('.your-class').slick({
-            vertical: true, slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow:"<img class='a-left control-c prev slick-prev' src='"+flecha_diblu+"'>",
-            nextArrow:"<img class='a-right control-c next slick-next' src='"+flecha_diblu+"'>"
-          });
-        });
 
       }
       api
@@ -1241,6 +1248,7 @@ export default {
   z-index: 999;
   height: 40px;
   width: 40px;
+  margin-top: -20px;
 }
 
 .conductores .slick-next{
@@ -1322,6 +1330,7 @@ export default {
   z-index: 999;
   height: 40px;
   width: 40px;
+  margin-top: -20px;
 }
 
 .galeria .slick-next{
@@ -1402,15 +1411,19 @@ export default {
   transform: rotate(-90deg);
   top: 0;
   margin-top: -20px;
+  width: 24px;
+  height: 38px;
 }
 
 #ohconde .slick-next{
   position: absolute;
   right: 48%;
   bottom: 0;
-  margin-top: 16rem;
+  margin-top: 27rem;
   margin-left: 24px;
   transform: rotate(90deg);
+  width: 24px;
+  height: 38px;
 }
 
 #ohconde .your-class{
@@ -1452,10 +1465,16 @@ export default {
     margin-top: 14px;
 }
 
+
 .cover-conductores{
   background-color: rgba(95, 77, 152, 0.7);
   height: 100%;
   width: 100%;
+  display: none;
+}
+
+.background-conductores:hover .cover-conductores{
+  display: block;
 }
 
 .galeria h1{
@@ -2087,11 +2106,11 @@ export default {
 
 #caravana .follow-us{
     height: 100vh;
-    background-image: url('~@/assets/webAdminRadio/img/siguenos.png');
+    background-image: url('~@/assets/webAdminRadio/img/caravana-siguenos.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    background-position: center 10px;
+    background-position: center center;
 }
 
 #caravana .social{
@@ -2245,11 +2264,11 @@ export default {
 
 #ohconde .follow-us{
     height: 100vh;
-    background-image: url('~@/assets/webAdminRadio/img/siguenos.png');
+    background-image: url('~@/assets/webAdminRadio/img/ohconde-siguenos.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    background-position: center 10px;
+    background-position: center center;
 }
 
 #ohconde .social{
