@@ -158,8 +158,8 @@
           </div>
 
           <div class="row">
-            <div class="col-2" v-for="(social, index) in sociales_diblu" :key="index" v-bind:class="{  'offset-3': index == 0 }">
-                  <h2 class="text-center text-green" style="font-size: 4rem;">
+            <div class="col-2" v-for="(social, index) in sociales_diblu" :key="index" v-bind:class="{  'offset-3 first-child-follow-us-margin' : index == 0, 'last-child-follow-us-margin': index == 2 }">
+                  <h2 class="text-center text-green" style="font-size: 2rem;" v-bind:class="{'push-right': index == 0, 'text-center':index == 1, 'push-left': index == 2}">
                     <a v-if="social.nombre == 'Facebook'" :href="social.link" target="__blank"><i  class="fab fa-facebook-square text-green" aria-hidden="true"></i></a>
                     <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
                     <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
@@ -207,7 +207,7 @@
           <div class="row">
             <carousel :autoplay="true" :perPage="5" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="▶" navigationPrevLabel="◀">
               <slide v-for="(segmento, index) in segmentos_caravana" :key="index">
-                <div class="col-md-12" style="padding:0; height: 230px; width: 230px;">
+                <div class="col-md-12" style="padding:0; height: 230px;">
                   <div :style="{ 'background-image': 'url(' + segmento.imagen + ')' }" class="img-fluid bg-image">
                     <div class="green-box">
                       <h4 class="text-white" style="font-size: 1.2rem;">{{ segmento.nombre }}</h4>
@@ -258,8 +258,8 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-            <div class="col-2" v-for="(social, index) in sociales_caravana" :key="index" v-bind:class="{  'offset-3': index == 0 }">
-                  <h2 class="text-center text-green" style="font-size: 4rem;">
+            <div class="col-2" v-for="(social, index) in sociales_caravana" :key="index"  v-bind:class="{  'offset-3 first-child-follow-us-margin' : index == 0, 'last-child-follow-us-margin': index == 2 }">
+                  <h2 class="text-center text-green" style="font-size: 2rem;" v-bind:class="{'push-right': index == 0, 'text-center':index == 1, 'push-left': index == 2}">
                     <a v-if="social.nombre == 'Facebook'" :href="social.link" target="__blank"><i  class="fab fa-facebook-square text-green" aria-hidden="true"></i></a>
                     <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
                     <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
@@ -345,8 +345,8 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-2" v-for="(social, index) in sociales_conde" :key="index" v-bind:class="{  'offset-3': index == 0 }">
-                  <h2 class="text-center text-green" style="font-size: 4rem;">
+                <div class="col-2" v-for="(social, index) in sociales_conde" :key="index" v-bind:class="{  'offset-3 first-child-follow-us-margin' : index == 0, 'last-child-follow-us-margin': index == 2 }">
+                  <h2 class="text-center text-green" style="font-size: 2rem;" v-bind:class="{'push-right': index == 0, 'text-center':index == 1, 'push-left': index == 2}">
                     <a v-if="social.nombre == 'Youtube'" :href="social.link" target="__blank"><i  class="fab fa-youtube text-green" aria-hidden="true"></i></a>
                     <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
                    <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
@@ -651,7 +651,7 @@
               <div class="row">
                 <div class="col-12">
                   <div style="width: 60px; height: 60px; float: left;">
-                    <i class="fa fa-map-marker custom-icon" aria-hidden="true"></i> 
+                    <i class="fas fa-map-marker custom-icon" aria-hidden="true"></i> 
                   </div>
                   <div>
                     Av. Juan Tanca Marengo Km 3 <br> junto a las antenas de TVCable.
@@ -661,7 +661,7 @@
               <div class="row">
                 <div class="col-12">
                   <div style="width: 60px; height: 60px; float: left;">
-                    <i class="fa fa-phone custom-icon" aria-hidden="true"></i>
+                    <i class="fas fa-phone custom-icon" aria-hidden="true"></i>
                   </div>
                   <div>
                     042317182 - 042317183 - 0989266897
@@ -671,7 +671,7 @@
               <div class="row">
                 <div class="col-12">
                   <div style="width: 60px; height: 90px; float: left;">
-                    <i class="fa fa-envelope custom-icon" aria-hidden="true"></i>
+                    <i class="fas fa-envelope custom-icon" aria-hidden="true"></i>
                   </div>
                   <div>
                     <p>info@diblu.ec</p>
@@ -1173,15 +1173,6 @@ export default {
 
     }
   },
-  created(){
-    $(document).scroll(function() {
-      if($(document).scrollTop() > 10){
-        $("#navbar .navbar").addClass("dark-transparent-navbar")
-      }else{
-        $("#navbar .navbar").removeClass("dark-transparent-navbar")
-      }
-    })
-  }
 };
 
 </script>
@@ -1898,7 +1889,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    background-position: center center;
+    background-position: center 10px;
 }
 
 #follow-us h1:after {
@@ -1910,7 +1901,7 @@ export default {
     margin-left: -50px;
     height: 1em;
     width: 100px;
-    border-bottom: 4px #a5ce39 solid;
+    border-bottom: 4px #394dce solid;
     margin-top: 14px;
     
 }
@@ -2074,7 +2065,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    background-position: center center;
+    background-position: center 10px;
 }
 
 #caravana .social{
@@ -2232,7 +2223,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    background-position: center center;
+    background-position: center 10px;
 }
 
 #ohconde .social{
@@ -2278,6 +2269,22 @@ export default {
 #sidebar .list-group-item{
   background-color: unset;
   color: #fff;
+}
+
+.push-right{
+  float: right;
+}
+
+.push-left{
+  float: left;
+}
+
+.first-child-follow-us-margin{
+  padding: 0px;
+}
+
+.last-child-follow-us-margin{
+  padding: 0px;
 }
 
 @media (max-width: 991px){
