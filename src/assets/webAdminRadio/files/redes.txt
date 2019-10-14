@@ -1,0 +1,46 @@
+  "red_sociales": [
+            {
+                "nombre": "Facebook",
+                "link": "https://www.facebook.com/Diblu88.9/"
+            },
+            {
+                "nombre": "Twitter",
+                "link": "https://twitter.com/RadioDibluFM/"
+            },
+            {
+                "nombre": "Instagram",
+                "link": "https://www.instagram.com/radiodiblufm/"
+            }
+        ],
+        "nombre": "Radio Diblu",
+
+
+
+        "red_sociales": [
+            {
+                "nombre": "Facebook",
+                "link": "https://www.facebook.com/RadioCaravana/"
+            },
+            {
+                "nombre": "Twitter",
+                "link": "https://twitter.com/Caravana750/"
+            },
+            {
+                "nombre": "Instagram",
+                "link": "https://www.instagram.com/caravana750/"
+            }
+        ],
+        "nombre": "Radio Caravana",
+
+
+        "red_sociales": [
+            {
+                "nombre": "Youtube",
+                "link": "https://www.youtube.com/channel/UCPHFkdGpFWAiWi9JrViJ5uw"
+            },
+            {
+                "nombre": "Instagram",
+                "link": "https://www.instagram.com/ohconde/"
+            }
+        ],
+        "nombre": "OH CONDE!",

@@ -61,7 +61,7 @@
                       <div class="d-flex flex-row-reverse bd-highlight">
                         <div class="p-2 bd-highlight ml-5">
                           <div class="footer-link">
-                                <a href="#">
+                                <a href="@/assets/webAdminRadio/files/CodigoDeontologico-RadioCaravanaSA.pdf">
                                     <p class="text-center">
                                         <img src="@/assets/webAdminRadio/img/codigo_etica.png" alt="">
                                     </p>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="p-2 bd-highlight ml-5">
                             <div class="footer-link">
-                                <a href="#">
+                                <a href="@/assets/webAdminRadio/files/COMPARTICIONDEINFRAESTRUCTURA.pdf">
                                     <p class="text-center">
                                         <img class="text-center" src="@/assets/webAdminRadio/img/comparticion_de_infraestructura.png" alt="">
                                     </p>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="p-2 bd-highlight ml-2">
                             <div class="footer-link">
-                                <a href="#">
+                                <a href="@/assets/webAdminRadio/files/InformeRendiciondeCuentas.pdf">
                                     <p class="text-center">
                                         <img class="text-center" src="@/assets/webAdminRadio/img/rendicion_de_cuentas.png" alt="">
                                     </p>
@@ -281,14 +281,17 @@
               <p class="text-center"></p>
             </div>
 
-            <div class="col-md-4">
-              <img src="@/assets/webAdminRadio/img/redes1.png" class="full-image" alt />
+            <div class="col-md-4 overflow-auto">
+              <a class="twitter-timeline" data-width="300"
+  data-height="300" href="https://twitter.com/Caravana750?ref_src=twsrc%5Etfw"></a>  
             </div>
             <div class="col-md-4">
-              <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
-            </div>
-            <div class="col-md-4">
-              <img src="@/assets/webAdminRadio/img/redes3.png" class="full-image" alt />
+            
+            
+           </div>
+            <div class="col-md-4">            
+<div v-html="html">
+  </div>
             </div>
           </div>
         </div>
@@ -734,7 +737,6 @@
 </template>
 
 <script>
-
 import { mapActions, mapState, mapGetters } from "vuex";
 import api from "../api/session";
 import axios from 'axios'
@@ -747,7 +749,8 @@ const diblu = require('@/assets/webAdminRadio/img/diblu1.png')
 const RC = require('@/assets/webAdminRadio/img/logo_grupocaravana.png')
 const ohconde = require('@/assets/webAdminRadio/img/ohconde2.png')
 const flecha_conductores = require('@/assets/webAdminRadio/img/flecha_der_conductores.png')
- const flecha_galeria = require('@/assets/webAdminRadio/img/flecha_der_galeria.png')
+const flecha_galeria = require('@/assets/webAdminRadio/img/flecha_der_galeria.png')
+
 export default {
   name: "home",
   components: {
@@ -811,6 +814,13 @@ export default {
           file: new Audio('http://www.makrodigital.com:8006/radiocaravana'),
           isPlaying: false
       },
+       maxWidth: 500,
+       url: 'https://www.instagram.com/p/B3kHmF9gbsq/',
+       hideCaption: false,
+       omitScript: true,
+       className: '',
+       html: '',
+      instagram_caravana: `https://www.instagram.com/p/B3kHmF9gbsq/?utm_source=ig_embed&amp;utm_campaign=loading`,
       sociales_diblu: [],
       sociales_caravana: [],
       sociales_conde: [],
@@ -842,6 +852,7 @@ export default {
   created() {
     const token = localStorage.getItem('TOKEN_STORAGE_KEY');
    // !token ? this.login(this.inputs) : ''
+   this.fetchEmbed()
     this.getConductores()
     //this.getEmisoraSegmentosToday(13, this.type);
     this.getAllEquipos()
@@ -855,10 +866,11 @@ export default {
     this.getSocialesDiblu(13)
     this.getSocialesCaravana(14)
     this.getSocialesOhConde(16)
+    
    $(document).scroll(function() {
         if($(document).scrollTop() > 10){
           $("#navbar .navbar").addClass("dark-transparent-navbar")
-          console.log($(document).scrollTop())
+        
         }else{
           $("#navbar .navbar").removeClass("dark-transparent-navbar")
         }
@@ -873,6 +885,11 @@ export default {
     'isAuthenticated',
   ]),
   methods: {
+    fetchEmbed() {
+      const maxWidth = this.maxWidth >= 320 ? this.maxWidth : 320
+      const url = `https://api.instagram.com/oembed?url=${this.url}&maxwidth=${maxWidth}&hidecaption=${this.hideCaption}&omitscript=${this.omitScript}`;
+      
+    },
      search() {
       const { baseUrl, part, type, order, maxResults, q, key, channelId} = this.api;
       const apiUrl = `${baseUrl}part=${part}&channelId=${channelId}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}`;
