@@ -4,28 +4,31 @@
     <div id="sidebar">
       <ul>
         <li>
-          <img
-            @click="getSegmentosDiblu(13)"
+           <a href="#hero" @click="getSegmentosDiblu(13)"><img
             src="@/assets/webAdminRadio/img/boton_diblu.png"
             class="full-image"
             alt
-          />
+          /></a>
         </li>
         <li>
-          <img
-            @click="getSegmentosCaravana(14, 'caravana')"
+          
+           <a href="#caravana" @click="getSegmentosCaravana(14)">
+                <img
             src="@/assets/webAdminRadio/img/boton_RC.png"
             class="full-image"
             alt
           />
+              </a>
         </li>
         <li>
-          <img
-            @click="getEmisoraSegmentosToday(16, 'oh_conde')"
+          
+          <a href="#ohconde"  @click="getEmisoraSegmentosToday(14, 'oh_conde')">
+                <img
             src="@/assets/webAdminRadio/img/boton_ohconde.png"
             class="full-image"
             alt
           />
+              </a>
         </li>
         
       </ul>
@@ -152,15 +155,16 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-2 offset-3">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2" v-for="(social, index) in sociales_diblu" :key="index" v-bind:class="{  'offset-3': index == 0 }">
+                  <h2 class="text-center text-green" style="font-size: 4rem;">
+                    <a v-if="social.nombre == 'Facebook'" :href="social.link" target="__blank"><i  class="fab fa-facebook-square text-green" aria-hidden="true"></i></a>
+                    <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
+                    <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
+                  </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -254,15 +258,14 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-2 offset-3">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
+            <div class="col-2" v-for="(social, index) in sociales_caravana" :key="index" v-bind:class="{  'offset-3': index == 0 }">
+                  <h2 class="text-center text-green" style="font-size: 4rem;">
+                    <a v-if="social.nombre == 'Facebook'" :href="social.link" target="__blank"><i  class="fab fa-facebook-square text-green" aria-hidden="true"></i></a>
+                    <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
+                    <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
+                  </h2>
+            </div>
+               
           </div>
           </div>
         </div>
@@ -342,15 +345,13 @@
             <div class="col-12" style="margin-top: 8rem; margin-bottom: 4rem;">
               <h1 class="text-center text-white">SÍGUENOS</h1>
             </div>
-                <div class="col-2 offset-3">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-facebook" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-instagram" aria-hidden="true"></i></h2>
-                </div>
-                <div class="col-2">
-                  <h2 class="text-center text-green" style="font-size: 4rem;"><i class="fa fa-twitter" aria-hidden="true"></i></h2>
-                </div>
+                <div class="col-2" v-for="(social, index) in sociales_conde" :key="index" v-bind:class="{  'offset-3': index == 0 }">
+                  <h2 class="text-center text-green" style="font-size: 4rem;">
+                    <a v-if="social.nombre == 'Youtube'" :href="social.link" target="__blank"><i  class="fab fa-youtube text-green" aria-hidden="true"></i></a>
+                    <a v-if="social.nombre == 'Instagram'" :href="social.link" target="__blank"><i class="fab fa-instagram text-green" aria-hidden="true"></i></a>
+                   <a v-if="social.nombre == 'Twitter'" :href="social.link" target="__blank"><i class="fab fa-twitter text-green" aria-hidden="true"></i></a>
+                  </h2>
+            </div>
           </div>
           </div>
         </div>
@@ -806,7 +807,9 @@ export default {
           file: new Audio('http://www.makrodigital.com:8006/radiocaravana'),
           isPlaying: false
       },
-      
+      sociales_diblu: [],
+      sociales_caravana: [],
+      sociales_conde: [],
       isPlayingPodCasts: false,
       segmentos: [],
       segmentos_caravana: [],
@@ -841,8 +844,10 @@ export default {
     this.getPodCast()
     this.getGaleria()
     this.getSegmentosDiblu(13)
+    this.getSocialesDiblu(13)
     this.getSegmentosCaravana(14)
-
+    this.getSocialesCaravana(14)
+    this.getSocialesOhConde(16)
    $(document).scroll(function() {
         if($(document).scrollTop() > 10){
           $("#navbar .navbar").addClass("dark-transparent-navbar")
@@ -870,6 +875,38 @@ export default {
       this.$store
         .dispatch("auth/login", { username, password })
         .then(() => this.$router.push("/"));
+    },
+    getSocialesDiblu (id) {
+       const url = `/emisoras/${id}/redes_sociales?format=json`;
+      api.get(url, { crossdomain: true })
+            .then(res => {
+              this.sociales_diblu = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
+    },
+
+     getSocialesCaravana (id) {
+       const url = `/emisoras/${id}/redes_sociales?format=json`;
+      api.get(url, { crossdomain: true })
+            .then(res => {
+              this.sociales_caravana = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
+    },
+
+     getSocialesOhConde (id) {
+       const url = `/emisoras/${id}/redes_sociales?format=json`;
+      api.get(url, { crossdomain: true })
+            .then(res => {
+              this.sociales_conde = res.data;
+            })
+            .catch(err => {
+              console.error(err);
+            });
     },
     getData(apiUrl) {
       axios
