@@ -149,27 +149,19 @@
             navigationPrevLabel="◀"
           >
             <slide v-for="(transmision, index) in transmisiones_diblu" :key="index">
-              <div class="col-md-12 sli-p" style="padding:0">
-                <div
-                  v-if="transmision.equipo1"
-                  style="padding-top: 20%;"
-                  :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }"
-                  class="img-fluid bg-image"
-                >
-                  <div class="green-box" style="width: 200px;">
-                    <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+              <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
+                  <div class="green-box">
+                      <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                   </div>
-                  <div
-                    class="blue-box"
-                    style="background-color: #2c2469; width: 60%; margin-left: 20px; font-size: 10px;"
-                  >
-                    <p
-                      class="text-center text-white"
-                      style="font-size: 12px;"
-                    >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                    <div class="blue-box">
+                      <p
+                        class="text-center text-white"
+                        style="font-size: 12px;"
+                      >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                   </div>
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
                 </div>
-              </div>
             </slide>
           </carousel>
         </div>
@@ -304,22 +296,18 @@
               navigationPrevLabel="◀"
             >
               <slide v-for="(transmision, index) in transmisiones_caravana" :key="index">
-                <div class="col-md-12 sli-p" style="padding:0">
-                  <div
-                    v-if="transmision.equipo1"
-                    :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }"
-                    class="img-fluid bg-image"
-                  >
-                    <div class="green-box">
+                <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
+                  <div class="green-box">
                       <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
-                    </div>
+                  </div>
                     <div class="blue-box">
                       <p
                         class="text-center text-white"
                         style="font-size: 12px;"
                       >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
-                    </div>
                   </div>
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
                 </div>
               </slide>
             </carousel>
@@ -400,12 +388,7 @@
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12">
-                <!--<img
-                src="@/assets/img/2-1400x445.png"
-                class="full-image"
-                alt
-                style="margin-top: -20%; z-index: 99;"
-                />-->
+      
                 <iframe
                   style="width: 100%; height: 600px; margin-top: -37%;"
                   src="https://www.youtube.com/embed/r-qCzkqEMUM"
@@ -491,22 +474,18 @@
               navigationPrevLabel="◀"
             >
               <slide v-for="(transmision, index) in transmisiones_conde" :key="index">
-                <div class="col-md-12 sli-c" style="padding:0">
-                  <div
-                    v-if="transmision.equipo1"
-                    :style="{ 'background-image': 'url(' + getImagenEquipo(transmision.equipo1) + ')' }"
-                    class="bg-image"
-                  >
-                    <div class="green-box" style="padding: 10px;">
+                <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
+                  <div class="green-box">
                       <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
-                    </div>
+                  </div>
                     <div class="blue-box">
                       <p
                         class="text-center text-white"
                         style="font-size: 12px;"
                       >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
-                    </div>
                   </div>
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
                 </div>
               </slide>
             </carousel>
@@ -937,7 +916,7 @@ const ohconde = require("@/assets/webAdminRadio/img/ohconde2.png");
 const flecha_conductores = require("@/assets/webAdminRadio/img/flecha_der_conductores.png");
 const flecha_galeria = require("@/assets/webAdminRadio/img/flecha_der_galeria.png");
 const flecha_diblu = require("@/assets/webAdminRadio/img/flecha_diblu.png");
-
+const fondo_trans = require("@/assets/webAdminRadio/img/estadio-de-futbol-i27310.jpg");
 export default {
   name: "home",
   components: {
@@ -963,6 +942,7 @@ export default {
           flecha_conductores +
           "'>"
       },
+      back_trans: fondo_trans,
       option_ohconde: {
         vertical: true,
         slidesToShow: 3,
@@ -1215,23 +1195,6 @@ export default {
             .catch(err => {
 
             });
-
-         /*$(document).ready(function() {
-            const flecha_diblu = require("@/assets/webAdminRadio/img/flecha_diblu.png");
-            $(".ohconde-class").slick({
-              vertical: true,
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              prevArrow:
-                "<img class='a-left control-c prev slick-prev' src='" +
-                flecha_diblu +
-                "'>",
-              nextArrow:
-                "<img class='a-right control-c next slick-next' src='" +
-                flecha_diblu +
-                "'>"
-            });
-          });*/
         })
         .catch(err => {
 
