@@ -141,6 +141,7 @@
           </div>
 
           <carousel
+            
             :autoplay="true"
             :perPage="3"
             :paginationEnabled="false"
@@ -164,6 +165,34 @@
                 </div>
             </slide>
           </carousel>
+
+          <carousel
+            class="hide-on-lg"
+            :autoplay="true"
+            :perPage="1"
+            :paginationEnabled="false"
+            :navigationEnabled="true"
+            navigationNextLabel="▶"
+            navigationPrevLabel="◀"
+          >
+            <slide v-for="(transmision, index) in transmisiones_diblu" :key="index">
+              <div class="col-md-12 img-fluid bg-image" style="padding:" :style="{ 'background-image': 'url(' + back_trans + ')' }">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:70px">
+                  <div class="green-box">
+                      <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
+                  </div>
+                    <div class="blue-box" style="background-color: #005b90; width: 70%; margin-left: 10px;">
+                      <p
+                        class="text-center text-white"
+                        style="font-size: 12px;"
+                      >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
+                  </div>
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:70px" class="float-right">
+                </div>
+            </slide>
+          </carousel>
+
+
         </div>
       </section>
 
@@ -2498,10 +2527,36 @@ export default {
     height: 70px;
     background-color: rgba(0, 0, 0, 0.7) !important;
   }
+
+  .show-on-lg{
+    display: block;
+  }
+
+  .transmissions h1{
+    color: red;
+  }
+
+  .footer-main {
+    display: none;
+  }
+
 }
 
-@media (max-width: 991px) {
-  .footer-main {
+@media (min-width: 991px) {
+  
+
+  .hide-on-lg{
+    display: none !important;
+  }
+
+}
+
+@media (min-width: 990px){
+  .show-on-md{
+    display: block;
+  }
+
+  .hide-on-md{
     display: none;
   }
 }
