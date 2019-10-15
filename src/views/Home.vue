@@ -2532,10 +2532,6 @@ export default {
     display: block;
   }
 
-  .transmissions h1{
-    color: red;
-  }
-
   .footer-main {
     display: none;
   }
