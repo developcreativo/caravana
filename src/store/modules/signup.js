@@ -26,10 +26,20 @@ export default {
       commit,
     }, {
       // eslint-disable-next-line camelcase
-      username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active,
+      username,
+      password,
+      email,
+      rol,
+      cedula,
+      imagen,
+      first_name,
+      last_name,
+      fecha_nac,
+      telefono,
+      is_active,
     }) {
       commit(REGISTRATION_BEGIN);
-      return auth.createAccount(username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active)
+      return auth.createAccount(username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, telefono, is_active)
         .then(() => commit(REGISTRATION_SUCCESS));
     },
     activateAccount({

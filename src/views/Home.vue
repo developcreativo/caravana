@@ -218,12 +218,12 @@
                 <a
                   class="twitter-timeline"
                   data-width="300"
-                  data-height="300"
+                  data-height="500"
                   href="https://twitter.com/RadioDibluFM?ref_src=twsrc%5Etfw"
                 ></a>
             </div>
             <div class="col-md-4">
-              <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
+              <div class="fb-page" data-href="https://www.facebook.com/Diblu88.9/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Diblu88.9/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Diblu88.9/">Diblu 88.9 FM</a></blockquote></div>
             </div>
             <div class="col-md-4">
               <instagram-embed
@@ -362,11 +362,13 @@
                 <a
                   class="twitter-timeline"
                   data-width="300"
-                  data-height="300"
+                  data-height="500"
                   href="https://twitter.com/Caravana750?ref_src=twsrc%5Etfw"
                 ></a>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <div class="fb-page" data-href="https://www.facebook.com/RadioCaravana/" data-tabs="timeline" data-width="" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/RadioCaravana/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/RadioCaravana/">Radio Caravana 750 AM</a></blockquote></div>
+              </div>
               <div class="col-md-4">
                 <instagram-embed
                   :url="'https://www.instagram.com/p/B3m6dj0ng-O/'"
@@ -489,29 +491,6 @@
                 </div>
               </slide>
             </carousel>
-          </div>
-        </section>
-
-        <section class="social">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="text-center">Redes Sociales</h1>
-              </div>
-              <div class="col-12">
-                <p class="text-center"></p>
-              </div>
-
-              <div class="col-md-4">
-                <img src="@/assets/webAdminRadio/img/redes1.png" class="full-image" alt />
-              </div>
-              <div class="col-md-4">
-                <img src="@/assets/webAdminRadio/img/redes2.png" class="full-image" alt />
-              </div>
-              <div class="col-md-4">
-                <img src="@/assets/webAdminRadio/img/redes3.png" class="full-image" alt />
-              </div>
-            </div>
           </div>
         </section>
       </div>
@@ -1937,6 +1916,12 @@ export default {
   bottom: 0;
   width: 100%;
 }
+
+.instagram-media {
+  height: 500px;
+  overflow-y: auto;
+}
+
 
 #grabaciones-list {
   widows: 100%;

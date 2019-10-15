@@ -187,7 +187,7 @@ export default {
     return {
       errors: '',
       inputs: {
-             username: "", password: "", email: "", rol: "", cedula: null, imagen: null, first_name: "", last_name: "", fecha_nac: null, is_active: true,
+             username: "", password: "", email: "", rol: "", cedula: null, imagen: null, first_name: "", last_name: "", fecha_nac: null, telefono: null, is_active: true,
       },
       show: false
     };
@@ -201,9 +201,9 @@ export default {
     "registrationLoading"
   ]),
   methods: {
-    createAccount({ username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active }) {
+    createAccount({ username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, telefono, is_active }) {
       this.$store
-        .dispatch("signup/createAccount",{ username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active })
+        .dispatch("signup/createAccount",{ username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, telefono, is_active })
         .then((res) => {
         
           this.$toastr.s("Registro exitoso", "Gracias por su registro"),

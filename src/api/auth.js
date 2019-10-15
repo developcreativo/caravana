@@ -10,9 +10,19 @@ export default {
   logout() {
     return session.post('/auth/logout/', {});
   },
-  createAccount(username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active) {
+  createAccount(username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, telefono, is_active) {
     return session.post('/rest-auth/register/?format=json', {
-      username, password, email, rol, cedula, imagen, first_name, last_name, fecha_nac, is_active,
+      username,
+      password,
+      email,
+      rol,
+      cedula,
+      imagen,
+      first_name,
+      last_name,
+      fecha_nac,
+      telefono,
+      is_active,
     });
   },
   changeAccountPassword(password1, password2) {
