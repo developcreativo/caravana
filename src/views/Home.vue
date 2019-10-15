@@ -150,17 +150,17 @@
           >
             <slide v-for="(transmision, index) in transmisiones_diblu" :key="index">
               <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
-                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:70px">
                   <div class="green-box">
                       <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                   </div>
-                    <div class="blue-box">
+                    <div class="blue-box" style="background-color: #005b90; width: 70%; margin-left: 10px;">
                       <p
                         class="text-center text-white"
                         style="font-size: 12px;"
                       >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                   </div>
-                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:70px" class="float-right">
                 </div>
             </slide>
           </carousel>
@@ -297,7 +297,7 @@
             >
               <slide v-for="(transmision, index) in transmisiones_caravana" :key="index">
                 <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
-                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:60px">
                   <div class="green-box">
                       <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                   </div>
@@ -307,7 +307,7 @@
                         style="font-size: 12px;"
                       >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                   </div>
-                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:60px" class="float-right">
                 </div>
               </slide>
             </carousel>
@@ -474,11 +474,12 @@
               :navigationEnabled="true"
               navigationNextLabel="▶"
               navigationPrevLabel="◀"
+              style="height: 250px;"
             >
-              <slide v-for="(transmision, index) in transmisiones_conde" :key="index">
+              <slide v-for="(transmision, index) in transmisiones_conde" :key="index" style="padding: 20px; height: 250px;">
                 <div class="col-md-12 img-fluid bg-image" style="padding:0" :style="{ 'background-image': 'url(' + back_trans + ')' }">
-                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:100px">
-                  <div class="green-box">
+                  <img v-if="transmision.equipo1" :src="getImagenEquipo(transmision.equipo1)" alt="" style="width:60px">
+                  <div class="green-box" style="padding: 10px; margin-top: 10px;">
                       <h4 style="font-size: 1.2rem;" class="text-white">{{transmision.evento}}</h4>
                   </div>
                     <div class="blue-box">
@@ -487,7 +488,7 @@
                         style="font-size: 12px;"
                       >{{transmision.fecha_evento}} - {{transmision.hora_inicio}} - {{transmision.lugar}}</p>
                   </div>
-                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:100px" class="float-right">
+                   <img v-if="transmision.equipo2" :src="getImagenEquipo(transmision.equipo2)" alt="" style="width:60px" class="float-right">
                 </div>
               </slide>
             </carousel>
@@ -1569,7 +1570,7 @@ export default {
   position: absolute;
   right: 48%;
   bottom: 0;
-  margin-top: 27rem;
+  margin-top: 17rem;
   margin-left: 24px;
   transform: rotate(90deg);
   width: 24px;
@@ -1781,13 +1782,22 @@ export default {
 }
 
 .transmissions .VueCarousel {
-  height: 230px;
+  height: 250px;
+}
+
+.transmissions .VueCarousel-slide{
+  height: 250px;
+  padding: 20px;
+}
+
+#caravana .transmissions .bg-image{
+  height: 250px;
 }
 
 .transmissions .bg-image {
   height: 230px;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
 }
 
@@ -1989,6 +1999,7 @@ export default {
   background-color: #a5ce39;
   width: 70%;
   padding: 10px;
+  margin-top: 10px;
 }
 
 #schedule .green-box h3,
@@ -2196,8 +2207,9 @@ export default {
 #caravana .schedule .green-box,
 .transmissions .green-box {
   background-color: #e10713;
-  width: 70%;
+  width: 80%;
   padding: 10px;
+  margin-top: 10px;
 }
 
 #caravana .schedule .green-box h3,
@@ -2209,7 +2221,7 @@ export default {
 #caravana .transmissions .blue-box {
   background-color: #2c2469;
   margin-left: 20px;
-  width: 70%;
+  width: 80%;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
@@ -2321,11 +2333,11 @@ export default {
 }
 
 #ohconde .transmissions .VueCarousel {
-  height: 230px;
+  height: 250px;
 }
 
 #ohconde .transmissions .VueCarousel-slide {
-  height: 230px;
+  height: 250px;
 }
 
 #ohconde .transmissions .bg-image {
@@ -2334,7 +2346,7 @@ export default {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 230px;
+  height: 250px;
 }
 
 #ohconde .social h1:after {
@@ -2394,7 +2406,7 @@ export default {
 #ohconde .transmissions .blue-box {
   background-color: #444242;
   margin-left: 20px;
-  width: 70%;
+  width: 80%;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
