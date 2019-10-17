@@ -541,18 +541,21 @@
             >
               <slick :options="option_radio">
                 <div v-for="conductor in conductores" :key="conductor.id">
-                  <div
-                    v-if="conductor.imagen != null"
-                    class="background-conductores"
-                    :style="{ 'background-image': 'url(' + conductor.imagen + ')' }"
-                  >
-                    <div class="cover-conductores">
-                      <div class="container-fluid" style="height: 100%;">
-                        <div class="row align-items-center" style="height: 100% ;">
-                          <div class="col-12">
-                            <h3
-                              class="text-center text-white conductores-title"
-                            >{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+
+                  <div v-if="conductor.id > 6">
+                    <div
+                      v-if="conductor.imagen != null"
+                      class="background-conductores"
+                      :style="{ 'background-image': 'url(' + conductor.imagen + ')' }"
+                    >
+                      <div class="cover-conductores">
+                        <div class="container-fluid" style="height: 100%;">
+                          <div class="row align-items-center" style="height: 100% ;">
+                            <div class="col-12">
+                              <h3
+                                class="text-center text-white conductores-title"
+                              >{{ conductor.first_name }} {{ conductor.last_name }}</h3>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -631,7 +634,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <div
+              <!--<div
                 class="encuestas-carousel movil"
                 v-if="encuestas.length > 0"
                 style="margin-top: 3rem; margin-bottom: 2rem;"
@@ -685,7 +688,57 @@
                     </div>
                   </slide>
                 </carousel>
+              </div>-->
+
+              <div
+              class="encuestas-carousel h-100 d-none d-sm-none d-md-block"
+              v-if="encuestas.length > 0"
+              >
+                <slick :options="option_encuesta">
+                  <div v-for="encuesta in encuestas" :key="encuesta.id">
+ 
+                    <div class="container" style="margin-top: 2rem;">
+                      <div class="row">
+                        <div class="col-md-4 offset-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="exampleRadios"
+                              id="exampleRadios1"
+                              value="option1"
+                              checked
+                            />
+                            <label class="form-check-label" for="exampleRadios1">Default radio</label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="exampleRadios"
+                              id="exampleRadios2"
+                              value="option2"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="exampleRadios2"
+                            >Second default radio</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-md-8 col-md-6">
+                        <button
+                          class="btn btn-danger"
+                          style="margin-bottom: 4rem; padding-left: 25px; padding-right: 25px; border-radius: 0; background-color: #e10713;"
+                        >Votar</button>
+                      </div>
+                    </div>
+               
+                    </div>
+                </slick>
               </div>
+
+              
             </div>
           </div>
         </div>
@@ -942,6 +995,19 @@ export default {
       option_radio: {
         slidesToShow: 3,
         rows: 2,
+        autoplay:true,
+        prevArrow:
+          "<img class='a-left control-c prev slick-prev' src='" +
+          flecha_conductores +
+          "'>",
+        nextArrow:
+          "<img class='a-right control-c next slick-next' src='" +
+          flecha_conductores +
+          "'>"
+      },
+      option_encuesta: {
+        slidesToShow: 1,
+        autoplay:true,
         prevArrow:
           "<img class='a-left control-c prev slick-prev' src='" +
           flecha_conductores +
