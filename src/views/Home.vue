@@ -1008,14 +1008,11 @@ export default {
       option_encuesta: {
         slidesToShow: 1,
         autoplay:true,
+        dots: true,
         prevArrow:
-          "<img class='a-left control-c prev slick-prev' src='" +
-          flecha_conductores +
-          "'>",
+          "<button class='btn btn-primary encuesta-prev-btn' type='button'>Anterior</button>",
         nextArrow:
-          "<img class='a-right control-c next slick-next' src='" +
-          flecha_conductores +
-          "'>"
+          "<button class='btn btn-primary encuesta-next-btn' type='button'>Siguiente</button>"
       },
       back_trans: fondo_trans,
       option_ohconde: {
@@ -1039,10 +1036,6 @@ export default {
         mensaje: ""
       },
       flecha_conductores: flecha_conductores,
-      option_encuesta: {
-        arrows: false,
-        dots: true
-      },
       option_galeria: {
         rows: 2,
         slidesToShow: 2,
@@ -1776,6 +1769,7 @@ export default {
 .encuestas [type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
+  display:none;
 }
 .encuestas [type="radio"]:checked + label,
 .encuestas [type="radio"]:not(:checked) + label {
@@ -1826,6 +1820,7 @@ export default {
   background-color: white;
   width: 60px !important;
   border-radius: 20px;
+  height: 7px;
 }
 
 .encuestas .slick-dots li button:hover {
@@ -2257,6 +2252,20 @@ export default {
   background-size: cover;
   width: 100%;
   background-position: center center;
+}
+
+.encuesta-next-btn{
+  position: absolute;
+  right: 40%;
+  margin-top: -45px;
+}
+
+.encuesta-prev-btn{
+  position: absolute;
+  bottom: 7px;
+  left: 40%;
+  width: 95px;
+  z-index: 99999;
 }
 
 #caravana .follow-us h1 {
